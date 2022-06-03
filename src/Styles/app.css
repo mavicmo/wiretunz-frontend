@@ -1,0 +1,30 @@
+.header {
+  background-color: #000;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.brand {
+  font-size: 2rem;
+  margin-left: auto;
+  margin-right: 1rem;
+  color: #fff;
+  font-family: "Cairo", sans-serif;
+  font-weight: 200;
+}
+
+.main-content {
+  display: flex;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.buttons {
+  border: 3px solid #ff871f;
+  width: 10vw;
+  margin-left: 85%;
+}
