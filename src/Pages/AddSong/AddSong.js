@@ -3,9 +3,10 @@ import "./AddSong.css";
 import axios from "axios";
 // import NavBar from "../../components/NavBar/Navbar";
 import { Link } from "react-router-dom";
+import DisplayASong from "../../components/DisplayASong/DisplayASong";
 
 function AddSong() {
-  const [songs, setSongs] = useState([]);
+  const [songs, setSongs] = useState();
 
   const [equals, setEquals] = useState({
     name: "",
@@ -37,60 +38,68 @@ function AddSong() {
     if (equals.name && equals.artist && equals.song && equals.img) {
       setValid(true);
 
-      axios
-        .post("http://localhost:3001/songs/", equals)
-        .then(() => console.log("uploaded"));
+      axios.post("http://localhost:3001/songs/", equals).then((res) => {
+        setSongs(res.data.music);
+        console.log(res.data.music);
+      });
     }
     setSubmitted(true);
   };
+
   return (
     <>
       {/* <NavBar /> */}
       <div className="form-container">
-        <form className="formDiv" onSubmit={handleSubmit}>
-          <h1 className="h1Div"> Add New Song</h1>
+        {valid ? (
+          <div>
+            {" "}
+            {/* <h1>{songs.name}</h1>
+            <h1>{songs.artist}</h1>
+            <h1>{songs.song}</h1>
+            <h1>{songs.img}</h1> */}
+            <DisplayASong song={songs} />
+          </div>
+        ) : (
+          <form className="formDiv" onSubmit={handleSubmit}>
+            <h1 className="h1Div"> Add New Song</h1>
 
-          {submitted && valid ? (
-            <div className="Your Song Has Been Added!"></div>
-          ) : null}
+            <input
+              className="inputDiv"
+              onChange={handleTitleInputChange}
+              value={equals.name}
+              placeholder="Name"
+              name="title"
+            />
 
-          <input
-            className="inputDiv"
-            onChange={handleTitleInputChange}
-            value={equals.name}
-            placeholder="Name"
-            name="title"
-          />
+            <input
+              className="inputDiv"
+              onChange={handleArtistInputChange}
+              value={equals.artist}
+              placeholder="Artist"
+              name="artist"
+            />
 
-          <input
-            className="inputDiv"
-            onChange={handleArtistInputChange}
-            value={equals.artist}
-            placeholder="Artist"
-            name="artist"
-          />
+            <input
+              className="inputDiv"
+              onChange={handleSongInputChange}
+              value={equals.song}
+              placeholder="Song"
+              name=""
+            />
 
-          <input
-            className="inputDiv"
-            onChange={handleSongInputChange}
-            value={equals.song}
-            placeholder="Song"
-            name=""
-          />
+            <input
+              className="inputDiv"
+              onChange={handleImgInputChange}
+              value={equals.img}
+              placeholder="img"
+              name=""
+            />
 
-          <input
-            className="inputDiv"
-            onChange={handleImgInputChange}
-            value={equals.img}
-            placeholder="img"
-            name=""
-          />
-
-          {/* {submitted && !equals.email ?<span>Enter Email Name</span> :null} */}
-          <button className="btnDiv" type="submit">
-            Add Song
-          </button>
-        </form>
+            <button className="btnDiv" type="submit">
+              Add Song
+            </button>
+          </form>
+        )}
       </div>
     </>
   );
