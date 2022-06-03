@@ -8,6 +8,7 @@ import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import AddSong from "./Pages/AddSong/AddSong";
 import Playlist from "./Pages/Playlist/Playlist";
+import DisplayPlaylist from "./components/DisplayPlaylist/DisplayPlaylist";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/addSongs/" element={<AddSong />} />
       <Route path="/songs" element={<Songs />} />
-      <Route path="/playlist/" element={<Playlist />} />
+      <Route path="/addplaylist/" element={<Playlist />} />
+      <Route path="/playlists/" element={<DisplayPlaylist />} />
     </Routes>
   );
 }
