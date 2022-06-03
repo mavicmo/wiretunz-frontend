@@ -52,11 +52,6 @@ function AddSong() {
       <div className="form-container">
         {valid ? (
           <div>
-            {" "}
-            {/* <h1>{songs.name}</h1>
-            <h1>{songs.artist}</h1>
-            <h1>{songs.song}</h1>
-            <h1>{songs.img}</h1> */}
             <DisplayASong song={songs} />
           </div>
         ) : (

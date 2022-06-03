@@ -18,7 +18,7 @@ function Profile() {
     password: currentUser.password,
   });
 
-  useEffect(() => {}, [currentUser]);
+  // useEffect(() => {}, [currentUser]);
   // useState for the submit Button
   const [submitted, setSubmitted] = useState(false);
   const [edit, setEdit] = useState(false);
@@ -63,33 +63,37 @@ function Profile() {
   };
 
   const changeUserProfile = async () => {
-    if (values.firstName && values.lastName) {
-      // setValid(true);
-      console.log(currentUser);
-      // connects to the backend server to set the values
-      axios
-        .put(`http://localhost:3001/users/${currentUser._id}`, {
-          headers: { "x-access-token": currentUser.token },
-          values: values,
-        })
-        .then((response) => {
-          console.log(response.data.data.email);
-          localStorage.setItem("user", JSON.stringify(response.data.data));
-          currentUser = AuthService.getCurrentUser();
-        })
-        .then(() => {
-          navigate("/profile");
-          window.location.reload();
+    try {
+      if (values.firstName && values.lastName) {
+        // setValid(true);
+        console.log(currentUser);
+        // connects to the backend server to set the values
+        axios
+          .put(`http://localhost:3001/users/${currentUser._id}`, values, {
+            headers: { authorization: currentUser.token },
+          })
+          .then((response) => {
+            localStorage.setItem("user", JSON.stringify(response.data.data));
+            currentUser = AuthService.getCurrentUser();
+          })
+          .then(() => {
+            console.log(currentUser.token);
+            navigate("/profile");
+            console.log(currentUser.token);
 
-          setSubmitted(true);
-        });
+            setSubmitted(true);
+          });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   console.log(values);
+  console.log(currentUser.token);
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
 
       <div>
         <form className="formDiv" onSubmit={handleSubmit}>

@@ -7,11 +7,6 @@ import FormInput from "../../components/FormInputs/FormInputs";
 import React from "react";
 import AuthService from "../../services/authServices";
 
-// import SignUp from "../SignUp/SignUp";
-// import Home from "../Home/Home";
-// import Profile from "../Profile/Profile";
-// import { Routes, Route } from "react-router-dom";
-
 const Login = () => {
   // useState for the values
   const [values, setValues] = useState({
