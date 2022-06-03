@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import AuthService from "../../services/authServices";
+import * as AiIcons from "react-icons/ai";
 
 function Songs() {
   const [songs, setSongs] = useState([]);
+  const [liked, setLiked] = useState();
+  const currentUser = AuthService.getCurrentUser();
 
   const URL = "http://localhost:3001/songs/"; // HEROKU LINK
 
@@ -22,7 +26,23 @@ function Songs() {
     return <h1>loading....</h1>;
   }
 
-  // console.log(songs);
+  const likedSong = (id) => {
+    console.log("liked hit");
+    axios.put(URL + `likedsong/${id}`, null, {
+      headers: { authorization: currentUser.token },
+    });
+  };
+
+  const deleteSong = (id) => {
+    console.log("deleted");
+    axios
+      .delete(URL + `${id}`, null, {
+        // headers: { authorization: currentUser.token },
+      })
+      .then(window.location.reload());
+  };
+
+  console.log(songs);
   return (
     <section className="row">
       {songs.map((song) => (
@@ -34,6 +54,21 @@ function Songs() {
           </Link>
           <button className="btn">
             <Link to={`/${song._id}`}>Delete This</Link>
+          </button>
+
+          <button
+            onClick={() => {
+              likedSong(song._id);
+            }}
+          >
+            <AiIcons.AiFillHeart />
+          </button>
+          <button
+            onClick={() => {
+              deleteSong(song._id);
+            }}
+          >
+            Delete
           </button>
         </div>
       ))}
