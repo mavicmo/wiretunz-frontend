@@ -31,7 +31,7 @@ const Bar = () => {
     },
     {
       title: "Playlist",
-      path: "/playlist",
+      path: "/playlists",
       icon: <MdIcons.MdFeaturedPlayList />,
       cName: "nav-text",
     },
@@ -63,9 +63,9 @@ const Bar = () => {
     //     </IconContext.Provider>
     //   </div>
     // </>
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand placement='start' as={Link} to="/home">
+        <Navbar.Brand placement="start" as={Link} to="/home">
           WireTunez
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic" />
@@ -77,7 +77,7 @@ const Bar = () => {
             <Nav.Link className="icon" as={Link} to="/likedsongs">
               <FiIcons.FiMusic />
             </Nav.Link>
-            <Nav.Link className="icon" as={Link} to="/playlist">
+            <Nav.Link className="icon" as={Link} to="/playlists">
               <MdIcons.MdFeaturedPlayList />
             </Nav.Link>
             <Nav.Link className="icon" as={Link} to="/">

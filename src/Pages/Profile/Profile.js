@@ -73,13 +73,14 @@ function Profile() {
             headers: { authorization: currentUser.token },
           })
           .then((response) => {
+            console.log(response);
             localStorage.setItem("user", JSON.stringify(response.data.data));
+
             currentUser = AuthService.getCurrentUser();
           })
           .then(() => {
-            console.log(currentUser.token);
             navigate("/profile");
-            console.log(currentUser.token);
+            window.location.reload();
 
             setSubmitted(true);
           });
@@ -89,8 +90,6 @@ function Profile() {
     }
   };
 
-  console.log(values);
-  console.log(currentUser.token);
   return (
     <>
       {/* <NavBar /> */}
