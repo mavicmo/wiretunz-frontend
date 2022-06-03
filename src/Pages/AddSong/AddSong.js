@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import "./AddSong.css";
 import axios from "axios";
 import NavBar from "../../components/NavBar/Navbar";
+import { Link } from "react-router-dom";
 
 
 function AddSong() {
+
+  const [songs, setSongs] = useState([]);
+
   const [equals, setEquals] = useState({
     name: "",
     artist: "",
@@ -30,7 +34,7 @@ function AddSong() {
     setEquals({ ...equals, img: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+
     event.preventDefault();
     if (equals.name && equals.artist && equals.song && equals.img) {
       setValid(true);
@@ -42,7 +46,7 @@ function AddSong() {
     setSubmitted(true);
   };
   return (
-    <>
+
       <NavBar />
       <div className="form-container">
         <form className="formDiv" onSubmit={handleSubmit}>
@@ -89,9 +93,5 @@ function AddSong() {
             Add Song
           </button>
         </form>
-      </div>
-    </>
-  );
-}
 
 export default AddSong;

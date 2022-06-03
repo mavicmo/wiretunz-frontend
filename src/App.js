@@ -17,6 +17,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/addSongs/" element={<AddSong />} />
+      <Route path="/playlist/" element= {<Playlist />} />
     </Routes>
   );
 }

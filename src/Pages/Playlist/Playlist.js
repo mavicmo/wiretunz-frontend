@@ -6,7 +6,9 @@ import NavBar from "../../components/NavBar/Navbar";
 
 
 
-function Playlists() {
+
+function Playlist() {
+
     const [values, setValues] = useState({
   
         name: '',
@@ -40,7 +42,9 @@ function Playlists() {
       event.preventDefault() 
       if(values.name && values.artist && values.song && values.image) {
         setValid(true);
-        axios.post ('http://localhost:3001/api/playlist/add', {body:equals}).then(()=> 
+
+        axios.post ('http://localhost:3001/api/playlist/add', {values}).then(()=> 
+
         console.log('uploaded'))
   
       }
@@ -56,7 +60,9 @@ function Playlists() {
   
           <input
           onChange={handleNameInputChange}
-          value={equals.name}
+
+          value={values.name}
+
           className= 'form-field'
           placeholder='Name'
           name='name' />
@@ -64,28 +70,34 @@ function Playlists() {
   
           <input
           onChange={handleArtistInputChange}
-          value={equals.artist}
+
+          value={values.artist}
           className= 'form-field'
           placeholder='Artist'
           name='Artist' />
-          {/* {submitted && !equals.artist ? <span>Enter Artist</span> :null} */}
+          {/* {submitted && !values.artist ? <span>Enter Artist</span> :null} */}
   
           <input
           onChange={handleSongInputChange}
-          value={equals.song}
+          value={values.song}
+
           className= 'form-field'
           placeholder='Song'
           name='Song' />
   
           <input
           onChange={handleImageInputChange}
-          value={equals.image}
+
+          value={values.image}
+
           className= 'form-field'
           placeholder='Image'
           name='Image' />
   
           
-             {/* {submitted && !equals.email ?<span>Enter Email Name</span> :null} */}
+
+             {/* {submitted && !values.email ?<span>Enter Email Name</span> :null} */}
+
            <button
            className='form-field'
            type='submit'>Add Your Playlist</button>
