@@ -5,12 +5,15 @@ import * as FiIcons from "react-icons/fi";
 import NavBar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 import "./Home.css";
+import Header from "../../components/Header";
+import "../../Styles/app.css";
 
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();
   console.log(data);
   return (
     <>
+      <Header />
       <NavBar />
       <main className="main-content">
         <div className="search">
@@ -19,7 +22,7 @@ function Home({ data }) {
 
         <div className="welcome">
           <h1>
-            Welcome{" "}
+            Welcome
             {currentUser.firstName.charAt(0).toUpperCase() +
               currentUser.firstName.slice(1)}
           </h1>
