@@ -1,6 +1,7 @@
 .mainDiv {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   height: 100vh;
   background-color: black;
@@ -36,5 +37,5 @@
   align-items: center;
   justify-content: right;
   color: black;
-  font-size: 11px;
+  font-size: 14px;
 }

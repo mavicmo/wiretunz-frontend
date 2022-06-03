@@ -24,16 +24,17 @@ function Songs() {
 
   // console.log(songs);
   return (
-    <section>
-      <div>Hello</div>
+    <section className="row">
       {songs.map((song) => (
-        <div key={song._id} className="song">
+        <div key={song._id} className="card col-md-4">
           <Link to={`/${song._id}`}>
             <h1>{song.name}</h1>
             <img src={song.image} alt={song.name} />
-            <h3>{song.name}</h3>
+            <h3>{song.artist}</h3>
           </Link>
-          <Link to={`/${song._id}`}>Delete This</Link>
+          <button className="btn">
+            <Link to={`/${song._id}`}>Delete This</Link>
+          </button>
         </div>
       ))}
     </section>

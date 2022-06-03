@@ -6,6 +6,7 @@ import "../SignUp/signup.css";
 import FormInput from "../../components/FormInputs/FormInputs";
 import React from "react";
 import AuthService from "../../services/authServices";
+import Logo from "../../components/Logo";
 
 const Login = () => {
   // useState for the values
@@ -78,31 +79,34 @@ const Login = () => {
 
   // console.log(data);
   return (
-    <div className="mainDiv">
-      <form className="formDiv" onSubmit={handleSubmit}>
-        <h1 className="h1Div">Log In</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
+    <>
+      <div className="mainDiv">
+        <Logo />
+        <form className="formDiv" onSubmit={handleSubmit}>
+          <h1 className="h1Div">Log In</h1>
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
 
-        <button type="submit" className="btnDiv">
-          Log In
-        </button>
+          <button type="submit" className="btnDiv">
+            Log In
+          </button>
 
-        <p className="no-account">
-          Don't have an account?{" "}
-          <Link style={{ marginLeft: ".2rem" }} to="/signup">
-            {" "}
-            SIGN UP!
-          </Link>
-        </p>
-      </form>
-    </div>
+          <p className="no-account">
+            Don't have an account?{" "}
+            <Link style={{ marginLeft: ".2rem" }} to="/signup">
+              {" "}
+              SIGN UP!
+            </Link>
+          </p>
+        </form>
+      </div>
+    </>
   );
 };
 
