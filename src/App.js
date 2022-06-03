@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Login from "./Pages/Login/Login.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
-import Songs from "./Pages/Songs/Songs.js";
+import Songs from "./components/Songs/Songs.js";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import AddSong from "./Pages/AddSong/AddSong";
