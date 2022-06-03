@@ -1,0 +1,17 @@
+body {
+  border: 0;
+}
+
+.btnDiv {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  background-color: black;
+  color: #ff871f;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 15px;
+}
