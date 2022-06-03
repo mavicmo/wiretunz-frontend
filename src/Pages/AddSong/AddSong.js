@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 function AddSong() {
 
   const [songs, setSongs] = useState([]);
+
   const [equals, setEquals] = useState({
     name: "",
     artist: "",
@@ -33,14 +34,10 @@ function AddSong() {
     setEquals({ ...equals, img: event.target.value });
   };
 
-  const handleSubmit = (event) => { 
-    console.log(equals)
-    
+
     event.preventDefault();
     if (equals.name && equals.artist && equals.song && equals.img) {
       setValid(true);
-
-      setSongs(equals)
 
       axios
         .post("http://localhost:3001/songs/", equals)
@@ -49,7 +46,7 @@ function AddSong() {
     setSubmitted(true);
   };
   return (
-  <>
+
       <NavBar />
       <div className="form-container">
         <form className="formDiv" onSubmit={handleSubmit}>
@@ -58,6 +55,7 @@ function AddSong() {
           {submitted && valid ? (
             <div className="Your Song Has Been Added!"></div>
           ) : null}
+
           <input
             className="inputDiv"
             onChange={handleTitleInputChange}
@@ -65,6 +63,7 @@ function AddSong() {
             placeholder="Name"
             name="title"
           />
+
           <input
             className="inputDiv"
             onChange={handleArtistInputChange}
@@ -72,6 +71,7 @@ function AddSong() {
             placeholder="Artist"
             name="artist"
           />
+
           <input
             className="inputDiv"
             onChange={handleSongInputChange}
@@ -79,6 +79,7 @@ function AddSong() {
             placeholder="Song"
             name=""
           />
+
           <input
             className="inputDiv"
             onChange={handleImgInputChange}
@@ -86,29 +87,11 @@ function AddSong() {
             placeholder="img"
             name=""
           />
+
           {/* {submitted && !equals.email ?<span>Enter Email Name</span> :null} */}
           <button className="btnDiv" type="submit">
             Add Song
           </button>
         </form>
-        </div>
-        {songs.map((song) => (
-      <div key={song._id} className="song">
-        <Link to={`/${song._id}`}>
-          <h1>{song.name}</h1>
-          <img src={song.image} alt={song.name} />
-          <h3>{song.name}</h3>
-        </Link>
-        <Link to={`/${song._id}`}>Delete This</Link>
-        </div>
-
-
-  ))}
-  </>
-  )}
-  
-
-  
-
 
 export default AddSong;

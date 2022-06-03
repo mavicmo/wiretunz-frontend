@@ -6,7 +6,9 @@ import NavBar from "../../components/NavBar/Navbar";
 
 
 
+
 function Playlist() {
+
     const [values, setValues] = useState({
   
         name: '',
@@ -40,7 +42,9 @@ function Playlist() {
       event.preventDefault() 
       if(values.name && values.artist && values.song && values.image) {
         setValid(true);
+
         axios.post ('http://localhost:3001/api/playlist/add', {values}).then(()=> 
+
         console.log('uploaded'))
   
       }
@@ -56,7 +60,9 @@ function Playlist() {
   
           <input
           onChange={handleNameInputChange}
+
           value={values.name}
+
           className= 'form-field'
           placeholder='Name'
           name='name' />
@@ -64,6 +70,7 @@ function Playlist() {
   
           <input
           onChange={handleArtistInputChange}
+
           value={values.artist}
           className= 'form-field'
           placeholder='Artist'
@@ -73,19 +80,24 @@ function Playlist() {
           <input
           onChange={handleSongInputChange}
           value={values.song}
+
           className= 'form-field'
           placeholder='Song'
           name='Song' />
   
           <input
           onChange={handleImageInputChange}
+
           value={values.image}
+
           className= 'form-field'
           placeholder='Image'
           name='Image' />
   
           
+
              {/* {submitted && !values.email ?<span>Enter Email Name</span> :null} */}
+
            <button
            className='form-field'
            type='submit'>Add Your Playlist</button>
