@@ -10,6 +10,7 @@ function DisplayPlaylist() {
   useEffect(() => {
     fetchPlaylistData();
   }, []);
+
   const fetchPlaylistData = () => {
     // fetching all playlist from our heroku URL
     axios.get(URL).then((response) => {

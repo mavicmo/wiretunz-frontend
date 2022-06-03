@@ -6,7 +6,7 @@ import Bar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 // import "./Home.css";
 import "../../Styles/app.css";
-import Songs from "../Songs/Songs";
+import Songs from "../../components/Songs/Songs";
 import Header from "../../components/Header";
 
 function Home({ data }) {
@@ -16,8 +16,6 @@ function Home({ data }) {
     <>
       <Bar />
       <main className="main-content">
-    
-
         <div className="welcome">
           <h1>
             Welcome
@@ -32,7 +30,7 @@ function Home({ data }) {
               <FiIcons.FiMusic /> Add Song
             </button>
           </Link>
-          <Link to="/playlist">
+          <Link to="/addplaylist">
             <button className="home-button">
               <MdIcons.MdOutlinePlaylistAdd /> Add Playlist
             </button>
