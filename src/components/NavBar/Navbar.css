@@ -1,4 +1,15 @@
-.sidebar-menu {
+
+/* .sidebar {
+  display: flex;
+  position: fixed;
+  top: 100;
+  left: 0;
+  height: 100vh;
+  
+
+} */
+
+.sidebar {
   background-color: #000;
   width: 220px;
   height: 100vh;
@@ -9,9 +20,9 @@
   left: 5;
 }
 
-/* .sidebar-menu {
+.sidebar-menu {
   position: relative;
-} */
+}
 
 .nav-text {
   display: flex;
@@ -30,7 +41,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 0px;
   border-radius: 4px;
 }
 
@@ -38,11 +48,16 @@
   background-color: rgba(211, 211, 211, 0.3);
 }
 
-.nav-menu-items {
+/* .nav-menu-items {
   width: 100%;
-}
+} */
 
 span {
   margin-left: 16px;
   color: #fff;
 }
+
+.icon {
+  color: #ff871f;
+}
+

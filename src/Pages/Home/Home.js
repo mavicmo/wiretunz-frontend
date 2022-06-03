@@ -4,9 +4,10 @@ import * as MdIcons from "react-icons/md";
 import * as FiIcons from "react-icons/fi";
 import Bar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
-import "./Home.css";
-import Header from "../../components/Header";
+// import "./Home.css";
 import "../../Styles/app.css";
+import Songs from "../Songs/Songs";
+import Header from "../../components/Header";
 
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();
@@ -15,9 +16,7 @@ function Home({ data }) {
     <>
       <Bar />
       <main className="main-content">
-        <div className="search">
-          <input type="text" placeholder="Search Song" id="search" />
-        </div>
+    
 
         <div className="welcome">
           <h1>
@@ -40,10 +39,8 @@ function Home({ data }) {
           </Link>
         </div>
 
-        <div className="search-result">
-
-
-          
+        <div className="container-fluid search-result row">
+          <Songs />
         </div>
       </main>
     </>
