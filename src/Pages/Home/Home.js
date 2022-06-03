@@ -6,15 +6,14 @@ import Bar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 // import "./Home.css";
 import "../../Styles/app.css";
-import Songs from "../Songs/Songs";
-import Header from "../../components/Header";
+import Songs from "../../components/Songs/Songs";
 
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();
   console.log(data);
   return (
     <>
-      <Bar />
+      {/* <Bar /> */}
       <main className="main-content">
     
 

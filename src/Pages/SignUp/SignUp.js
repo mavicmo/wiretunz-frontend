@@ -96,9 +96,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="app">
-      <form onSubmit={handleSubmit}>
-        <h1>Sign Up</h1>
+    <div className="mainDiv">
+      <form className="formDiv" onSubmit={handleSubmit}>
+        <h1 className="h1Div">Sign Up</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}
