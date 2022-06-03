@@ -10,9 +10,6 @@ import Logo from "../Logo";
 import { IconContext } from "react-icons/lib";
 
 const Navbar = () => {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
 
   const SideBarInfo = [
     {
@@ -39,26 +36,19 @@ const Navbar = () => {
       icon: <MdIcons.MdFeaturedPlayList />,
       cName: "nav-text",
     },
+    {
+      title: "Logout",
+      path: "/",
+      icon: <MdIcons.MdLogout />,
+      cName: "nav-text",
+    },
   ];
 
   return (
-    <>
+    <div className="sidebar ">
       <IconContext.Provider value={{ color: "ff871f" }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-          <Logo />
-        </div>
-
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-            </li>
-
+        <nav className="sidebar-menu">
+          <ul className="nav-menu-items">
             {SideBarInfo.map((item, index) => (
               <li key={index} className={item.cName}>
                 <Link to={item.path}>
@@ -70,7 +60,7 @@ const Navbar = () => {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </div>
   );
 };
 

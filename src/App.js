@@ -6,7 +6,7 @@ import SignUp from "./Pages/SignUp/SignUp.js";
 // import Songs from "./Pages/Songs/Songs.js";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
-import AddSong from "./Pages/AddSongs/AddSongs";
+import AddSong from "./Pages/AddSong/AddSong";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

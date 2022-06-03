@@ -1,32 +1,16 @@
-.navbar {
+.sidebar-menu {
   background-color: #000;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.menu-bars {
-  margin-left: 2rem;
-  font-size: 2rem;
-  background: none;
-}
-
-.nav-menu {
-  background-color: #000;
-  width: 250px;
+  width: 220px;
   height: 100vh;
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 0;
-  left: -100%;
-  transition: 550ms;
+  top: 5;
+  left: 5;
 }
 
-.nav-menu.active {
-  left: 0;
-  transition: 350ms;
+.sidebar-menu {
+  /* position: relative; */
 }
 
 .nav-text {
@@ -42,42 +26,23 @@
   text-decoration: none;
   color: #fff;
   font-size: 18px;
-  width: 95%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 0px;
   border-radius: 4px;
 }
 
 .nav-text a:hover {
-  background-color: gray;
-  opacity: 5%;
+  background-color: rgba(211, 211, 211, 0.3);
 }
 
 .nav-menu-items {
   width: 100%;
 }
 
-.navbar-toggle {
-  background-color: #000;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 span {
   margin-left: 16px;
   color: #fff;
-}
-
-.brand {
-  font-size: 2rem;
-  margin-left: auto;
-  margin-right: 1rem;
-  color: #fff;
-  font-family: "Cairo", sans-serif;
-  font-weight: 200;
 }
