@@ -52,10 +52,10 @@
   display: flex;
   /* justify-content: center; */
   /* flex-flow: row wrap; */
-  width: 100%;
+  width: 95%;
   height: 85vh;
   border: 5px solid black;
-  margin: 1.5rem;
+  margin: auto;
   overflow-y: scroll;
 }
 
@@ -64,3 +64,7 @@
   height: 200px;
   width: 200px;
 } */
+
+.app-container {
+  display: flex;
+}
