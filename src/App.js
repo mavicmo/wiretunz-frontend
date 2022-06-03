@@ -7,6 +7,7 @@ import SignUp from "./Pages/SignUp/SignUp.js";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import AddSong from "./Pages/AddSongs/AddSongs";
+import Playlist from "./Pages/Playlist/Playlist";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/addSongs/" element={<AddSong />} />
+      <Route path="/playlist/" element= {<Playlist />} />
     </Routes>
   );
 }

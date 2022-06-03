@@ -13,6 +13,7 @@ function Songs() {
   });
 
   const [song, setSong] = useState(null);
+  const [songs, setSongs] = useState([]);
 
   const URL = "http://localhost:3001/songs/"; // HEROKU LINK
 
@@ -45,6 +46,16 @@ function Songs() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    console.log(newForm)
+
+    const copy=[...songs,newForm]
+    setSongs(copy)
+
+    
+
+
+
     createSong(newForm);
     setNewForm({
       name: "",
@@ -106,6 +117,18 @@ function Songs() {
         <input type="submit" value="New Song Added!" />
       </form>
       {song ? loaded() : loading()}
+
+      {
+      songs.map((song) => (
+      <div key={song._id} className="song">
+        <Link to={`/${song._id}`}>
+          <h1>{song.name}</h1>
+          <img src={song.image} alt={song.name} />
+          <h3>{song.name}</h3>
+        </Link>
+        <Link to={`/${song._id}`}>Delete This</Link>
+      </div>
+    ))}
     </section>
   );
 }

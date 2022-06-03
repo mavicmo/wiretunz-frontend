@@ -31,7 +31,7 @@ function Home({ data }) {
               <FiIcons.FiMusic /> Add Song
             </button>
           </Link>
-          <Link to="#">
+          <Link to="/playlist">
             <button className="home-button">
               <MdIcons.MdOutlinePlaylistAdd /> Add Playlist
             </button>
