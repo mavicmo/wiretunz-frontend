@@ -25,7 +25,7 @@ function App() {
       <Route path="/addplaylist/" element={<Playlist />} />
       <Route path="/playlists/" element={<DisplayPlaylist />} />
       <Route path="/likedsongs/" element={<LikedSongs />} />
-      <Route path="/updatesong/" element={<UpdateSong />} />
+      <Route path="/updatesong/:songid" element={<UpdateSong />} />
     </Routes>
   );
 }
