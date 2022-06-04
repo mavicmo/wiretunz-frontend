@@ -34,7 +34,6 @@ function DisplayPlaylist() {
             <img src={Playlist.image} alt={Playlist.name} />
             <h3>{Playlist.desc}</h3>
           </Link>
-          <Link to={`/${Playlist._id}`}>Delete This</Link>
         </div>
       ))}
     </section>
