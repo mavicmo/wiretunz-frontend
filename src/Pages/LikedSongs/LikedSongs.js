@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import AuthService from "../../services/authServices";
 import Bar from "../../components/NavBar/Navbar";
+import * as AiIcons from "react-icons/ai";
 
 function LikedSongs() {
   const [likeSong, setLikedSong] = useState([]);
@@ -24,13 +25,13 @@ function LikedSongs() {
       });
   };
 
-  const deleteSong = (id) => {
-    console.log("deleted");
+  const likedSong = (id) => {
+    console.log("liked hit");
     axios
-      .delete(URL + `${id}`, {
+      .put("http://localhost:3001/songs/likedsong/" + `${id}`, null, {
         headers: { authorization: currentUser.token },
       })
-      // .then(window.location.reload(false));
+      .then(window.location.reload());
   };
 
   if (!likeSong.length) {
@@ -48,18 +49,17 @@ function LikedSongs() {
               style={{ width: "25rem" }}
               className="col-md-4 border"
             >
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src={like.img} />
               <Card.Body>
                 <Card.Title>{like.name}</Card.Title>
                 <Card.Text>{like.artist}</Card.Text>
-                <Button variant="primary">Go somewhere</Button>
 
                 <Button
                   onClick={() => {
-                    deleteSong(like._id);
+                    likedSong(like._id);
                   }}
                 >
-                  Delete
+                  <AiIcons.AiFillHeart />
                 </Button>
               </Card.Body>
             </Card>

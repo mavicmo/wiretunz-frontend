@@ -8,7 +8,6 @@ import AuthService from "../../services/authServices";
 import "../../Styles/app.css";
 import Songs from "../../components/Songs/Songs";
 
-
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();
   console.log(data);
@@ -16,15 +15,15 @@ function Home({ data }) {
     <>
       <Bar />
       <main className="main-content">
-        <div className="welcome">
-          <h1 className='name'>
-            Welcome
+        {/* <div className="welcome">
+          <h1 className="name">
+            Welcome{" "}
             {currentUser.firstName.charAt(0).toUpperCase() +
               currentUser.firstName.slice(1)}
           </h1>
-        </div>
+        </div> */}
 
-        <div className="buttons">
+        {/* <div className="buttons">
           <Link to="/addSongs">
             <button className="home-button">
               <FiIcons.FiMusic /> Add Song
@@ -35,7 +34,7 @@ function Home({ data }) {
               <MdIcons.MdOutlinePlaylistAdd /> Add Playlist
             </button>
           </Link>
-        </div>
+        </div> */}
 
         <div className="container-fluid search-result row">
           <Songs />
