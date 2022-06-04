@@ -4,17 +4,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 import * as AiIcons from "react-icons/ai";
-
+// import UpdateSong from "./components/UpdateSong/UpdateSong";
 import {
   DropdownButton,
   ButtonGroup,
   Dropdown,
   SplitButton,
-  Card, Button
+  Card,
+  Button,
 } from "react-bootstrap";
-
-
-
 
 function Songs() {
   const [songs, setSongs] = useState([]);
@@ -83,15 +81,18 @@ function Songs() {
   };
 
   return (
-
-    <section className='row'>
+    <section className="row">
       {songs.map((song) => (
-        <Card key={song._id} style={{ width: "25rem" }} className='col-md-4 border'>
+        <Card
+          key={song._id}
+          style={{ width: "25rem" }}
+          className="col-md-4 border"
+        >
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>{song.name}</Card.Title>
             <Card.Text>{song.artist}</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+
             <button
               onClick={() => {
                 likedSong(song._id);
@@ -99,6 +100,11 @@ function Songs() {
             >
               <AiIcons.AiFillHeart />
             </button>
+            <Link to={`/${song._id}`}>Delete This</Link>
+            <Link to={`/updatesong/${song._id}`}>
+              <button className="btn btn-secondary">Update</button>
+            </Link>
+
             <button
               onClick={() => {
                 deleteSong(song._id);
@@ -106,27 +112,26 @@ function Songs() {
             >
               Delete
             </button>
-                      <DropdownButton
-            as={ButtonGroup}
-            key={"Warning"}
-            id={`dropdown-"Warning"s-${"Warning"}`}
-            variant={"Warning".toLowerCase()}
-            title={"Playlist"}
-          >
-            {playlists.map((playlist) => (
-              <Dropdown.Item
-                eventKey={playlist._id}
-                onClick={() => {
-                  addToPlaylist(song._id, playlist._id);
-                }}
-              >
-                {playlist.name}
-              </Dropdown.Item>
-            ))}
-          </DropdownButton>
+            <DropdownButton
+              as={ButtonGroup}
+              key={"Warning"}
+              id={`dropdown-"Warning"s-${"Warning"}`}
+              variant={"Warning".toLowerCase()}
+              title={"Playlist"}
+            >
+              {/* {playlists.map((playlist) => (
+                <Dropdown.Item
+                  eventKey={playlist._id}
+                  onClick={() => {
+                    addToPlaylist(song._id, playlist._id);
+                  }}
+                >
+                  {playlist.name}
+                </Dropdown.Item>
+              ))} */}
+            </DropdownButton>
           </Card.Body>
         </Card>
-
       ))}
     </section>
   );
