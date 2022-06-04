@@ -4,6 +4,8 @@ import "./signup.css";
 import FormInput from "../../components/FormInputs/FormInputs";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../components/Logo";
+
 const SignUp = () => {
   // useState for the values
   const [values, setValues] = useState({
@@ -97,6 +99,7 @@ const SignUp = () => {
 
   return (
     <div className="mainDiv">
+      <Logo />
       <form className="formDiv" onSubmit={handleSubmit}>
         <h1 className="h1Div">Sign Up</h1>
         {inputs.map((input) => (

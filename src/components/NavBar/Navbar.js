@@ -63,9 +63,9 @@ const Bar = () => {
     //     </IconContext.Provider>
     //   </div>
     // </>
-    <Navbar bg="dark" expand="lg">
+    <Navbar className="bg" expand="lg">
       <Container>
-        <Navbar.Brand placement='start' as={Link} to="/home">
+        <Navbar.Brand className='nav-brand' as={Link} to="/home">
           WireTunez
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic" />

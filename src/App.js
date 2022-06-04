@@ -11,21 +11,21 @@ import Playlist from "./Pages/Playlist/Playlist";
 import DisplayPlaylist from "./components/DisplayPlaylist/DisplayPlaylist";
 import { Routes, Route } from "react-router-dom";
 import Bar from "./components/NavBar/Navbar.js";
+import LikedSongs from "./Pages/LikedSongs/LikedSongs.js";
 
 function App() {
   return (
-    <div className='app-container'>
-      <Routes>
-        <Route path="/" exact element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/addSongs/" element={<AddSong />} />
-        <Route path="/songs" element={<Songs />} />
-        <Route path="/addplaylist/" element={<Playlist />} />
-        <Route path="/playlists/" element={<DisplayPlaylist />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" exact element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/addSongs/" element={<AddSong />} />
+      <Route path="/songs" element={<Songs />} />
+      <Route path="/addplaylist/" element={<Playlist />} />
+      <Route path="/playlists/" element={<DisplayPlaylist />} />
+      <Route path="/likedsongs/" element={<LikedSongs />} />
+    </Routes>
   );
 }
 
