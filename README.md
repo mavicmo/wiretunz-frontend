@@ -1,12 +1,26 @@
-# Getting Started with Create React App
+# WireTunz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WireTunz is a Spotify inspired app, targeted users are music lovers.
 
-## Available Scripts
 
-In the project directory, you can run:
+# Wire Frame 
 
-### `npm start`
+
+
+
+## Technical Requirements
+
+Node, Express, and Mongoose API with at least 1 non-user models. 
+
+Full Create, Read, Update, and Destroy (CRUD) functionality built throughout the app
+
+Uses React and leverages backend API 
+
+Communication with the back-end API RESTfully to Create, Read, Update, and Destroy resources using AXIOS 
+
+
+
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -53,18 +67,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/c
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
