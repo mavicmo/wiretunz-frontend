@@ -57,6 +57,7 @@ function DisplayPlaylist() {
         </div>
       ))}
     </section>
+
   );
 }
 
