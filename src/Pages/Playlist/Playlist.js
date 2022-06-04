@@ -4,6 +4,13 @@ import axios from "axios";
 import NavBar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist";
+
+import {Button, Form, Input}  from 'react-bootstrap';
+
+
+
+
+
 function Playlist() {
   const currentUser = AuthService.getCurrentUser();
   console.log(currentUser.token);
@@ -51,38 +58,40 @@ function Playlist() {
       {valid ? (
         <DisplayAPlaylist playlist={playlist} />
       ) : (
-        <form className="New Playlist" onSubmit={handleSubmit}>
-          <h1> New Playlist</h1>
+        <form className="formDiv" onSubmit={handleSubmit}>
+          <h1 className="h1Div"> New PlayList</h1>
 
           <input
+           className="inputDiv"
             onChange={handleNameInputChange}
             value={values.name}
-            className="form-field"
             placeholder="Name"
             name="name"
           />
 
           <input
+           className="inputDiv"
             onChange={handledescInputChange}
             value={values.desc}
-            className="form-field"
-            placeholder="desc"
+            placeholder="Description"
             name="desc"
           />
 
           <input
+            className="inputDiv"
             onChange={handleimgInputChange}
             value={values.img}
-            className="form-field"
-            placeholder="img"
-            name="img"
+            placeholder="Image"
+            name="Image"
           />
 
-          <button className="form-field" type="submit">
-            Submit
-          </button>
-        </form>
-      )}
+          <button className="btnDiv" type="submit">
+              New Playlist
+            </button>
+          </form>
+        )}
+
+
     </div>
   );
 }

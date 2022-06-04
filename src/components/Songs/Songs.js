@@ -4,14 +4,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 import * as AiIcons from "react-icons/ai";
+
 import {
   DropdownButton,
   ButtonGroup,
   Dropdown,
   SplitButton,
+  Card, Button
 } from "react-bootstrap";
 
-// import FetchPlaylist from "../../services/FetchPlaylist";
+
+
 
 function Songs() {
   const [songs, setSongs] = useState([]);
@@ -60,8 +63,8 @@ function Songs() {
   const deleteSong = (id) => {
     console.log("deleted");
     axios
-      .delete(URL + `${id}`, null, {
-        // headers: { authorization: currentUser.token },
+      .delete(URL + `${id}`, {
+        headers: { authorization: currentUser.token },
       })
       .then(window.location.reload());
   };
@@ -80,31 +83,30 @@ function Songs() {
   };
 
   return (
-    <section className="row">
+
+    <section className='row'>
       {songs.map((song) => (
-        <div key={song._id} className="card col-md-4">
-          <Link to={`/${song._id}`}>
-            <h1>{song.name}</h1>
-            <img src={song.image} alt={song.name} />
-            <h3>{song.artist}</h3>
-          </Link>
-
-          <button
-            onClick={() => {
-              likedSong(song._id);
-            }}
-          >
-            <AiIcons.AiFillHeart />
-          </button>
-          <button
-            onClick={() => {
-              deleteSong(song._id);
-            }}
-          >
-            Delete
-          </button>
-
-          <DropdownButton
+        <Card key={song._id} style={{ width: "25rem" }} className='col-md-4 border'>
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>{song.name}</Card.Title>
+            <Card.Text>{song.artist}</Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+            <button
+              onClick={() => {
+                likedSong(song._id);
+              }}
+            >
+              <AiIcons.AiFillHeart />
+            </button>
+            <button
+              onClick={() => {
+                deleteSong(song._id);
+              }}
+            >
+              Delete
+            </button>
+                      <DropdownButton
             as={ButtonGroup}
             key={"Warning"}
             id={`dropdown-"Warning"s-${"Warning"}`}
@@ -122,7 +124,9 @@ function Songs() {
               </Dropdown.Item>
             ))}
           </DropdownButton>
-        </div>
+          </Card.Body>
+        </Card>
+
       ))}
     </section>
   );

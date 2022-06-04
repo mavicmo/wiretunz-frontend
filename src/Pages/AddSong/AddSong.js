@@ -4,6 +4,7 @@ import axios from "axios";
 // import NavBar from "../../components/NavBar/Navbar";
 import { Link } from "react-router-dom";
 import DisplayASong from "../../components/DisplayASong/DisplayASong";
+import Bar from "../../components/NavBar/Navbar";
 
 function AddSong() {
   const [songs, setSongs] = useState();
@@ -48,7 +49,7 @@ function AddSong() {
 
   return (
     <>
-      {/* <NavBar /> */}
+      <Bar />
       <div className="form-container">
         {valid ? (
           <div>

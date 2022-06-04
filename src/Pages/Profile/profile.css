@@ -15,3 +15,21 @@ body {
   cursor: pointer;
   margin-top: 15px;
 }
+
+.user {
+  margin: 10%;
+  height: 50vh;
+}
+
+.update {
+  background-color: #ff871f;
+  padding: 0px 60px;
+  border-radius: 10px;
+  height: 50vh;
+}
+
+.user-information h2 {
+  padding: 30px;
+  margin-top: 25px ;
+}
+

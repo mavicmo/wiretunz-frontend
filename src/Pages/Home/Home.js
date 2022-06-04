@@ -14,10 +14,10 @@ function Home({ data }) {
   console.log(data);
   return (
     <>
-      {/* <Bar /> */}
+      <Bar />
       <main className="main-content">
         <div className="welcome">
-          <h1>
+          <h1 className='name'>
             Welcome
             {currentUser.firstName.charAt(0).toUpperCase() +
               currentUser.firstName.slice(1)}
