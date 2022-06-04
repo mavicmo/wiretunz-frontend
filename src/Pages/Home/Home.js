@@ -7,6 +7,7 @@ import AuthService from "../../services/authServices";
 // import "./Home.css";
 import "../../Styles/app.css";
 import Songs from "../../components/Songs/Songs";
+import WelcomePage from "../../components/WelcomePage";
 
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();

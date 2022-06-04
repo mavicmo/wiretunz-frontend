@@ -8,13 +8,14 @@ function WelcomePage() {
   const currentUser = AuthService.getCurrentUser();
 
   return (
-    <div>
+    <div className='main-content'>
       <div className="welcome">
         <h1 className="name">
           Welcome{" "}
           {currentUser.firstName.charAt(0).toUpperCase() +
             currentUser.firstName.slice(1)}
         </h1>
+        {/* <h3>Liked Songs</h3> */}
       </div>
       <div className="buttons">
         <Link to="/addSongs">
