@@ -3,15 +3,17 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import Bar from "../NavBar/Navbar";
-function UpdateSong(props) {
-  const songID = useParams();
-  const id = songID.songid;
+import Bar from "../../components/NavBar/Navbar";
+import AuthService from "../../services/authServices";
+function UpdatePlaylist(props) {
+  const playlistID = useParams();
+  const currentUser = AuthService.getCurrentUser();
+  const id = playlistID.playlistid;
+  console.log(id);
 
   const [values, setValues] = useState({
     name: "",
-    artist: "",
-    song: "",
+    desc: "",
     img: "",
   });
 
@@ -21,29 +23,28 @@ function UpdateSong(props) {
   };
 
   // handles the submit button for a sign up
-  const handleSubmit = (e, songID) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
 
-    // updateSong(songID);
-    console.log("update song hit");
-    try {
-      axios
-        .put("http://localhost:3001/songs/" + `${id}`, values)
-        .then((res) => {
-          console.log(res);
-          setValues(res.data.data);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+    // updatePlaylist(playlistID);
+    console.log("update playlist hit");
+
+    axios
+      .put("http://localhost:3001/playlist/editplaylist/" + `${id}`, values, {
+        headers: { authorization: currentUser.token },
+      })
+      .then((res) => {
+        console.log(res);
+        setValues(res.data.data);
+      });
   };
 
   return (
     <>
       <Bar />
       <form className="update" onSubmit={handleSubmit}>
-        <h1 className="h1Div"> Edit The Song</h1>
+        <h1 className="h1Div"> Edit The Playlist</h1>
 
         <input
           className="inputDiv"
@@ -56,24 +57,16 @@ function UpdateSong(props) {
         <input
           className="inputDiv"
           onChange={onChange}
-          value={values.artist}
-          placeholder="Artist"
-          name="artist"
-        />
-
-        <input
-          className="inputDiv"
-          onChange={onChange}
-          value={values.song}
-          placeholder="Song"
-          name="song"
+          value={values.desc}
+          placeholder="Desc"
+          name="desc"
         />
 
         <input
           className="inputDiv"
           onChange={onChange}
           value={values.img}
-          placeholder="img"
+          placeholder="Image"
           name="img"
         />
 
@@ -85,4 +78,4 @@ function UpdateSong(props) {
   );
 }
 
-export default UpdateSong;
+export default UpdatePlaylist;
