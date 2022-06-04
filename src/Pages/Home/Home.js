@@ -8,6 +8,7 @@ import AuthService from "../../services/authServices";
 import "../../Styles/app.css";
 import Songs from "../../components/Songs/Songs";
 
+
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();
   console.log(data);
@@ -29,7 +30,7 @@ function Home({ data }) {
               <FiIcons.FiMusic /> Add Song
             </button>
           </Link>
-          <Link to="/playlist">
+          <Link to="/addplaylist">
             <button className="home-button">
               <MdIcons.MdOutlinePlaylistAdd /> Add Playlist
             </button>
