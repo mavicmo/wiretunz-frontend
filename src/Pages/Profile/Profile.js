@@ -7,6 +7,7 @@ import authHeader from "../../services/authHeader";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./profile.css";
+import Bar from "../../components/NavBar/Navbar";
 
 function Profile() {
   let currentUser = AuthService.getCurrentUser();
@@ -92,10 +93,9 @@ function Profile() {
 
   return (
     <>
-      {/* <NavBar /> */}
-
-      <div>
-        <form className="formDiv" onSubmit={handleSubmit}>
+      <Bar />
+      <div className="user">
+        <form className="update" onSubmit={handleSubmit}>
           <h1 className="h1Div">
             {" "}
             Hello{" "}
