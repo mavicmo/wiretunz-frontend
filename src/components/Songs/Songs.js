@@ -10,11 +10,9 @@ import {
   ButtonGroup,
   Dropdown,
   SplitButton,
-  Card, Button
+  Card,
+  Button,
 } from "react-bootstrap";
-
-
-
 
 function Songs() {
   const [songs, setSongs] = useState([]);
@@ -83,15 +81,17 @@ function Songs() {
   };
 
   return (
-
-    <section className='row'>
+    <section className="row">
       {songs.map((song) => (
-        <Card key={song._id} style={{ width: "25rem" }} className='col-md-4 border'>
-          <Card.Img variant="top" src="holder.js/100px180" />
+        <Card
+          key={song._id}
+          style={{ width: "14rem" }}
+          className="col-md-4 song-card"
+        >
+          <Card.Img variant="top" className='cardImg inner' src={song.img}/>
           <Card.Body>
             <Card.Title>{song.name}</Card.Title>
             <Card.Text>{song.artist}</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
             <button
               onClick={() => {
                 likedSong(song._id);
@@ -106,27 +106,25 @@ function Songs() {
             >
               Delete
             </button>
-                      <DropdownButton
-            as={ButtonGroup}
-            key={"Warning"}
-            id={`dropdown-"Warning"s-${"Warning"}`}
-            variant={"Warning".toLowerCase()}
-            title={"Playlist"}
-          >
-            {playlists.map((playlist) => (
-              <Dropdown.Item
-                eventKey={playlist._id}
-                onClick={() => {
-                  addToPlaylist(song._id, playlist._id);
-                }}
-              >
-                {playlist.name}
-              </Dropdown.Item>
-            ))}
-          </DropdownButton>
+            <DropdownButton
+              key={"Warning"}
+              id={`dropdown-"Warning"s-${"Warning"}`}
+              variant={"Warning".toLowerCase()}
+              title={"Playlist"}
+            >
+              {playlists.map((playlist) => (
+                <Dropdown.Item
+                  eventKey={playlist._id}
+                  onClick={() => {
+                    addToPlaylist(song._id, playlist._id);
+                  }}
+                >
+                  {playlist.name}
+                </Dropdown.Item>
+              ))}
+            </DropdownButton>
           </Card.Body>
         </Card>
-
       ))}
     </section>
   );

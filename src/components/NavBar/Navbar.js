@@ -8,6 +8,7 @@ import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Header from "../Header";
+import AddButton from "../AddButton";
 
 const Bar = () => {
   const SideBarInfo = [
@@ -66,8 +67,7 @@ const Bar = () => {
 
     <Navbar className="bg" expand="lg">
       <Container>
-        <Navbar.Brand className='nav-brand' as={Link} to="/home">
-
+        <Navbar.Brand className="nav-brand" as={Link} to="/home">
           WireTunez
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic" />
