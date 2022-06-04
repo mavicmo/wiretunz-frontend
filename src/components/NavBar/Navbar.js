@@ -8,6 +8,7 @@ import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Header from "../Header";
+import WelcomePage from "../WelcomePage";
 
 const Bar = () => {
   const SideBarInfo = [
@@ -63,32 +64,33 @@ const Bar = () => {
     //     </IconContext.Provider>
     //   </div>
     // </>
-
-    <Navbar className="bg" expand="lg">
-      <Container>
-        <Navbar.Brand className='nav-brand' as={Link} to="/home">
-
-          WireTunez
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link className="icon" as={Link} to="/profile">
-              <CgIcons.CgProfile />
-            </Nav.Link>
-            <Nav.Link className="icon" as={Link} to="/likedsongs">
-              <FiIcons.FiMusic />
-            </Nav.Link>
-            <Nav.Link className="icon" as={Link} to="/playlists">
-              <MdIcons.MdFeaturedPlayList />
-            </Nav.Link>
-            <Nav.Link className="icon" as={Link} to="/">
-              <MdIcons.MdLogout />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar className="bg" expand="lg">
+        <Container className="nav-container">
+          <Navbar.Brand className="nav-brand" as={Link} to="/home">
+            WireTunez
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link className="icon" as={Link} to="/profile">
+                <CgIcons.CgProfile />
+              </Nav.Link>
+              <Nav.Link className="icon" as={Link} to="/likedsongs">
+                <FiIcons.FiMusic />
+              </Nav.Link>
+              <Nav.Link className="icon" as={Link} to="/playlists">
+                <MdIcons.MdFeaturedPlayList />
+              </Nav.Link>
+              <Nav.Link className="icon" as={Link} to="/">
+                <MdIcons.MdLogout />
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <WelcomePage />
+    </>
   );
 };
 

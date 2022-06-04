@@ -85,10 +85,11 @@ function Songs() {
       {songs.map((song) => (
         <Card
           key={song._id}
-          style={{ width: "25rem" }}
-          className="col-md-4 border"
+
+          style={{ width: "14rem" }}
+          className="col-md-4 song-card"
         >
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" className='cardImg inner' src={song.img}/>
           <Card.Body>
             <Card.Title>{song.name}</Card.Title>
             <Card.Text>{song.artist}</Card.Text>
@@ -113,13 +114,15 @@ function Songs() {
               Delete
             </button>
             <DropdownButton
-              as={ButtonGroup}
+
               key={"Warning"}
               id={`dropdown-"Warning"s-${"Warning"}`}
               variant={"Warning".toLowerCase()}
               title={"Playlist"}
             >
-              {/* {playlists.map((playlist) => (
+
+              {playlists.map((playlist) => (
+
                 <Dropdown.Item
                   eventKey={playlist._id}
                   onClick={() => {
@@ -128,7 +131,9 @@ function Songs() {
                 >
                   {playlist.name}
                 </Dropdown.Item>
-              ))} */}
+
+              ))}
+
             </DropdownButton>
           </Card.Body>
         </Card>
