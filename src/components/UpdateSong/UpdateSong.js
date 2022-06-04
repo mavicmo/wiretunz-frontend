@@ -38,19 +38,6 @@ function UpdateSong(props) {
       console.log(error);
     }
   };
-  const updateSong = (songID) => {
-    console.log("update song hit");
-    try {
-      axios
-        .put("http://localhost:3001/songs/" + `${songID}`, values)
-        .then((res) => {
-          console.log(res);
-          setValues(res.data.data);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
