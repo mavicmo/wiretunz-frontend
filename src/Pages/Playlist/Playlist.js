@@ -3,13 +3,12 @@ import "./Playlist.css";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist";
-
+import Bar from "../../components/NavBar/Navbar";
 
 import { Button, Form, Input } from "react-bootstrap";
 
 function Playlist() {
   const currentUser = AuthService.getCurrentUser();
-  console.log(currentUser.token);
   const [values, setValues] = useState({
     name: "",
     desc: "",
@@ -51,6 +50,7 @@ function Playlist() {
   };
   return (
     <>
+      <Bar />
       <div className="form-container">
         {valid ? (
           <DisplayAPlaylist playlist={playlist} />

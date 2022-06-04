@@ -55,45 +55,48 @@ function UpdateSong(props) {
   return (
     <>
       <Bar />
-      <form className="update" onSubmit={handleSubmit}>
-        <h1 className="h1Div"> Edit The Song</h1>
+      <div className="song-div">
+        <form className="update" onSubmit={handleSubmit}>
+          <h1 className="h1Div"> Edit The Song</h1>
 
-        <input
-          className="inputDiv"
-          onChange={onChange}
-          value={values.name}
-          placeholder="Name"
-          name="name"
-        />
+          <input
+            className="inputDiv song-update"
+            onChange={onChange}
+            value={values.name}
+            placeholder="Name"
+            name="name"
+          />
+          <br></br>
+          <input
+            className="inputDiv song-update"
+            onChange={onChange}
+            value={values.artist}
+            placeholder="Artist"
+            name="artist"
+          />
+          <br></br>
+          <input
+            className="inputDiv song-update"
+            onChange={onChange}
+            value={values.song}
+            placeholder="Song"
+            name="song"
+          />
 
-        <input
-          className="inputDiv"
-          onChange={onChange}
-          value={values.artist}
-          placeholder="Artist"
-          name="artist"
-        />
+          <br></br>
+          <input
+            className="inputDiv song-update"
+            onChange={onChange}
+            value={values.img}
+            placeholder="img"
+            name="img"
+          />
 
-        <input
-          className="inputDiv"
-          onChange={onChange}
-          value={values.song}
-          placeholder="Song"
-          name="song"
-        />
-
-        <input
-          className="inputDiv"
-          onChange={onChange}
-          value={values.img}
-          placeholder="img"
-          name="img"
-        />
-
-        <button type="submit" className="btnDiv">
-          Submit
-        </button>
-      </form>
+          <button type="submit" className="btnDiv">
+            Submit
+          </button>
+        </form>
+      </div>
     </>
   );
 }
