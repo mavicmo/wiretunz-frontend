@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import "./Playlist.css";
 import axios from "axios";
-import NavBar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist";
 
-import {Button, Form, Input}  from 'react-bootstrap';
 
-
-
-
+import { Button, Form, Input } from "react-bootstrap";
 
 function Playlist() {
   const currentUser = AuthService.getCurrentUser();
@@ -54,45 +50,45 @@ function Playlist() {
     }
   };
   return (
-    <div className="form-container">
-      {valid ? (
-        <DisplayAPlaylist playlist={playlist} />
-      ) : (
-        <form className="formDiv" onSubmit={handleSubmit}>
-          <h1 className="h1Div"> New PlayList</h1>
+    <>
+      <div className="form-container">
+        {valid ? (
+          <DisplayAPlaylist playlist={playlist} />
+        ) : (
+          <form className="formDiv" onSubmit={handleSubmit}>
+            <h1 className="h1Div"> New PlayList</h1>
 
-          <input
-           className="inputDiv"
-            onChange={handleNameInputChange}
-            value={values.name}
-            placeholder="Name"
-            name="name"
-          />
+            <input
+              className="inputDiv"
+              onChange={handleNameInputChange}
+              value={values.name}
+              placeholder="Name"
+              name="name"
+            />
 
-          <input
-           className="inputDiv"
-            onChange={handledescInputChange}
-            value={values.desc}
-            placeholder="Description"
-            name="desc"
-          />
+            <input
+              className="inputDiv"
+              onChange={handledescInputChange}
+              value={values.desc}
+              placeholder="Description"
+              name="desc"
+            />
 
-          <input
-            className="inputDiv"
-            onChange={handleimgInputChange}
-            value={values.img}
-            placeholder="Image"
-            name="Image"
-          />
+            <input
+              className="inputDiv"
+              onChange={handleimgInputChange}
+              value={values.img}
+              placeholder="Image"
+              name="Image"
+            />
 
-          <button className="btnDiv" type="submit">
+            <button className="btnDiv" type="submit">
               New Playlist
             </button>
           </form>
         )}
-
-
-    </div>
+      </div>
+    </>
   );
 }
 
