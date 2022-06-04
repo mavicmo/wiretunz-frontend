@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
@@ -85,11 +84,10 @@ function Songs() {
       {songs.map((song) => (
         <Card
           key={song._id}
-
           style={{ width: "14rem" }}
           className="col-md-4 song-card"
         >
-          <Card.Img variant="top" className='cardImg inner' src={song.img}/>
+          <Card.Img variant="top" className="cardImg inner" src={song.img} />
           <Card.Body>
             <Card.Title>{song.name}</Card.Title>
             <Card.Text>{song.artist}</Card.Text>
@@ -101,7 +99,7 @@ function Songs() {
             >
               <AiIcons.AiFillHeart />
             </button>
-            <Link to={`/${song._id}`}>Delete This</Link>
+
             <Link to={`/updatesong/${song._id}`}>
               <button className="btn btn-secondary">Update</button>
             </Link>
@@ -114,15 +112,12 @@ function Songs() {
               Delete
             </button>
             <DropdownButton
-
               key={"Warning"}
               id={`dropdown-"Warning"s-${"Warning"}`}
               variant={"Warning".toLowerCase()}
               title={"Playlist"}
             >
-
               {playlists.map((playlist) => (
-
                 <Dropdown.Item
                   eventKey={playlist._id}
                   onClick={() => {
@@ -131,9 +126,7 @@ function Songs() {
                 >
                   {playlist.name}
                 </Dropdown.Item>
-
               ))}
-
             </DropdownButton>
           </Card.Body>
         </Card>
