@@ -115,7 +115,7 @@
 }
 
 body {
-  background-color: rgba(128, 128, 128, .5);
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .Playlist {
@@ -127,4 +127,16 @@ body {
   display: flex;
   flex-direction: row;
   margin: auto;
+}
+
+.song-update {
+  width: 100%;
+}
+
+.song-div {
+  width: 36vw;
+  margin-left: 30%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }

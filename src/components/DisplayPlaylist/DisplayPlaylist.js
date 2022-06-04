@@ -36,6 +36,8 @@ function DisplayPlaylist() {
 
   // console.log(playlist);
   return (
+    <>
+      <Bar />
       <section className="container-fluid search-result row play-list">
         {playlist.map((Playlist) => (
           <div key={Playlist._id} className="Playlist">
@@ -44,16 +46,19 @@ function DisplayPlaylist() {
               <img src={Playlist.image} alt={Playlist.name} />
               <h3>{Playlist.desc}</h3>
             </Link>
-            <button
-              onClick={() => {
-                deletePlaylist(Playlist._id);
-              }}
-            >
-              Delete
-            </button>
+            <div className="delete-btn">
+              <button className='delete'
+                onClick={() => {
+                  deletePlaylist(Playlist._id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))}
       </section>
+    </>
   );
 }
 
