@@ -36,28 +36,30 @@ function DisplayPlaylist() {
 
   // console.log(playlist);
   return (
-    <section className="container-fluid search-result row play-list">
-      {playlist.map((Playlist) => (
-        <div key={Playlist._id} className="Playlist">
-          <Link to={`/${Playlist._id}`}>
-            <h1>{Playlist.name}</h1>
-            <img src={Playlist.image} alt={Playlist.name} />
-            <h3>{Playlist.desc}</h3>
-          </Link>
-          <Link to={`/updateplaylist/${Playlist._id}`}>
-            <button className="btn btn-secondary">Update</button>
-          </Link>
-          <button
-            onClick={() => {
-              deletePlaylist(Playlist._id);
-            }}
-          >
-            Delete
-          </button>
-        </div>
-      ))}
-    </section>
-
+    <>
+      <Bar />
+      <section className="container-fluid search-result row play-list">
+        {playlist.map((Playlist) => (
+          <div key={Playlist._id} className="Playlist">
+            <Link to={`/${Playlist._id}`}>
+              <h1>{Playlist.name}</h1>
+              <img src={Playlist.image} alt={Playlist.name} />
+              <h3>{Playlist.desc}</h3>
+            </Link>
+            <Link to={`/updateplaylist/${Playlist._id}`}>
+              <button className="btn btn-secondary">Update</button>
+            </Link>
+            <button
+              onClick={() => {
+                deletePlaylist(Playlist._id);
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </section>
+    </>
   );
 }
 
