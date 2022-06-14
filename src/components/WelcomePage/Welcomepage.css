@@ -1,0 +1,13 @@
+.welcome {
+  margin-right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.name {
+  font-size: 25px;
+  font-family: "Inter", sans-serif;
+}
+/* 
+h1 {
+  font-size: 15px;
+} */
