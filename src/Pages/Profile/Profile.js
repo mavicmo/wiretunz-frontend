@@ -96,12 +96,6 @@ function Profile() {
       <Bar />
       <div className="user">
         <form className="update" onSubmit={handleSubmit}>
-          <h1 className="h1Div">
-            {" "}
-            Hello{" "}
-            {currentUser.firstName.charAt(0).toUpperCase() +
-              currentUser.firstName.slice(1)}
-          </h1>
           {edit ? (
             inputs.map((input) => (
               <FormInput

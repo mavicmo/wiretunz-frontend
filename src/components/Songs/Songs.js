@@ -30,7 +30,7 @@ function Songs() {
   const fetchPlaylistData = () => {
     // fetching all playlist from our heroku URL
     axios.get("http://localhost:3001/playlist/").then((response) => {
-      console.log(response.data.data);
+      // console.log(response.data.data);
       setPlaylists(response.data.data);
     });
   };
@@ -41,7 +41,7 @@ function Songs() {
   const fetchSongData = () => {
     // fetching all songs from our heroku URL
     axios.get(URL).then((response) => {
-      console.log(response.data.data);
+      // console.log(response.data.data);
       setSongs(response.data.data);
     });
   };
@@ -81,7 +81,7 @@ function Songs() {
 
   return (
     <section className="row">
-      {songs.map((song) => (
+      {/* {songs.map((song) => (
         <Card
           key={song._id}
           style={{ width: "14rem" }}
@@ -130,7 +130,7 @@ function Songs() {
             </DropdownButton>
           </Card.Body>
         </Card>
-      ))}
+      ))} */}
     </section>
   );
 }
