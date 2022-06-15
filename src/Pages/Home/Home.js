@@ -8,7 +8,7 @@ import AuthService from "../../services/authServices";
 import "../../Styles/app.css";
 import Songs from "../../components/Songs/Songs";
 import WelcomePage from "../../components/WelcomePage/WelcomePage";
-
+import Search from "../../Pages/Search/Search";
 function Home({ data }) {
   const currentUser = AuthService.getCurrentUser();
   console.log(data);
@@ -16,6 +16,7 @@ function Home({ data }) {
     <>
       <Bar />
       <main className="main-content">
+        {/* <Search /> */}
         {/* <div className="welcome">
           <h1 className="name">
             Welcome{" "}

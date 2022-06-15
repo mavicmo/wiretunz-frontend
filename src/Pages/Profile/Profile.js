@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./profile.css";
 import Bar from "../../components/NavBar/Navbar";
+import { Button, Fade, Container, Card } from "react-bootstrap";
 
 function Profile() {
   let currentUser = AuthService.getCurrentUser();
@@ -94,54 +95,70 @@ function Profile() {
   return (
     <>
       <Bar />
-      <div className="user">
-        <form className="update" onSubmit={handleSubmit}>
-          {edit ? (
-            inputs.map((input) => (
-              <FormInput
-                key={input.id}
-                {...input}
-                value={values[input.name]}
-                onChange={onChange}
-              />
-            ))
-          ) : (
-            <div className="user-information">
-              <h2>
-                First Name:{" "}
-                {currentUser.firstName.charAt(0).toUpperCase() +
-                  currentUser.firstName.slice(1)}
-              </h2>
-              <h2>
-                Last Name:{" "}
-                {currentUser.lastName.charAt(0).toUpperCase() +
-                  currentUser.lastName.slice(1)}
-              </h2>
-              <h2>
-                Email:{" "}
-                {currentUser.email.charAt(0).toUpperCase() +
-                  currentUser.email.slice(1)}
-              </h2>
-            </div>
-          )}
-          {edit ? (
-            <div className="btn">
-              <button className="btnDiv">Submit Changes</button>
-              <button onClick={() => setEdit(false)} className="btnDiv">
-                Cancel
-              </button>
-            </div>
-          ) : (
-            <button
-              type="submit"
-              onClick={() => setEdit(true)}
-              className="btnDiv"
-            >
-              Edit
-            </button>
-          )}
-        </form>
-      </div>
+      <Container className="d-flex flex-column py-2">
+        <div className="user">
+          <form className="update" onSubmit={handleSubmit}>
+            {edit ? (
+              inputs.map((input) => (
+                <FormInput
+                  key={input.id}
+                  {...input}
+                  value={values[input.name]}
+                  onChange={onChange}
+                />
+              ))
+            ) : (
+              <Card>
+                <Card.Body>
+                  <div className="user-information">
+                    <h2>
+                      First Name:{" "}
+                      {currentUser.firstName.charAt(0).toUpperCase() +
+                        currentUser.firstName.slice(1)}
+                    </h2>
+                    <h2>
+                      Last Name:{" "}
+                      {currentUser.lastName.charAt(0).toUpperCase() +
+                        currentUser.lastName.slice(1)}
+                    </h2>
+                    <h2>
+                      Email:{" "}
+                      {currentUser.email.charAt(0).toUpperCase() +
+                        currentUser.email.slice(1)}
+                    </h2>
+                  </div>
+                </Card.Body>
+              </Card>
+            )}
+            {edit ? (
+              <div className="d-flex flex-column">
+                <button className="btn btn-success btn-sm">
+                  Submit Changes
+                </button>
+                <button
+                  onClick={() => setEdit(false)}
+                  className="btn btn-danger btn-sm"
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <Container
+                style={{ textAlign: "center" }}
+                className="d-flex flex-column"
+              >
+                <button
+                  type="submit"
+                  onClick={() => setEdit(true)}
+                  className="btn btn-secondary btn-sm"
+                >
+                  Edit
+                </button>
+              </Container>
+            )}
+          </form>
+        </div>
+      </Container>
     </>
   );
 }
