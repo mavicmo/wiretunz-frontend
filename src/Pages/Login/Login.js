@@ -6,7 +6,9 @@ import "../SignUp/signup.css";
 import FormInput from "../../components/FormInputs/FormInputs";
 import React from "react";
 import AuthService from "../../services/authServices";
-import Logo from "../../components/Logo";
+
+import { Container, Form } from "react-bootstrap";
+import "./login.css";
 
 const Login = () => {
   // useState for the values
@@ -80,32 +82,40 @@ const Login = () => {
   // console.log(data);
   return (
     <>
-      <div className="mainDiv">
-        <Logo />
-        <form className="formDiv" onSubmit={handleSubmit}>
-          <h1 className="h1Div">Log In</h1>
-          {inputs.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-            />
-          ))}
+      <Container className="d-flex justify-content-center mt-2">
+        <div className="mainDiv ">
+          <div className="header d-flex justify-content-center mb-2">
+            <h1>WireTunz</h1>
+          </div>
 
-          <button type="submit" className="btnDiv">
-            Log In
-          </button>
+          <form className="formDiv" onSubmit={handleSubmit}>
+            <div className="h1Div py-2">
+              <h1 className="loginIn">Log In</h1>
+            </div>
 
-          <p className="no-account">
-            Don't have an account?{" "}
-            <Link style={{ marginLeft: ".2rem" }} to="/signup">
-              {" "}
-              SIGN UP!
-            </Link>
-          </p>
-        </form>
-      </div>
+            {inputs.map((input) => (
+              <FormInput
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                onChange={onChange}
+              />
+            ))}
+            <div className="d-flex flex-column">
+              <button type="submit" className="btnDiv btn btn-success btn-lg">
+                Log In
+              </button>
+            </div>
+            <p className="no-account">
+              Don't have an account?{" "}
+              <Link style={{ marginLeft: ".2rem" }} to="/signup">
+                {" "}
+                SIGN UP!
+              </Link>
+            </p>
+          </form>
+        </div>
+      </Container>
     </>
   );
 };

@@ -4,8 +4,7 @@ import "./signup.css";
 import FormInput from "../../components/FormInputs/FormInputs";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../components/Logo";
-
+import { Container, Form } from "react-bootstrap";
 const SignUp = () => {
   // useState for the values
   const [values, setValues] = useState({
@@ -98,36 +97,50 @@ const SignUp = () => {
   };
 
   return (
-    <div className="mainDiv">
-      <Logo />
-      <form className="formDiv" onSubmit={handleSubmit}>
-        <h1 className="h1Div">Sign Up</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
-        {/* <button>Sign Up!</button> */}
-        {submitted ? (
-          <Link to="/">
-            <button>Sign Up!</button>
-          </Link>
-        ) : (
-          <button>Sign Up!</button>
-        )}
+    <Container className="d-flex justify-content-center mt-2">
+      <div className="mainDiv">
+        <div className="header d-flex justify-content-center mb-2">
+          <h1>WireTunz</h1>
+        </div>
+        <form className="formDiv" onSubmit={handleSubmit}>
+          <div className="h1Div py-2">
+            <h1 className="signup">Sign Up</h1>
+          </div>
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
+          {/* <button>Sign Up!</button> */}
+          {submitted ? (
+            <Link to="/">
+              <div className="d-flex flex-column">
+                <button type="submit" className="btnDiv btn btn-success btn-lg">
+                  Sign Up!
+                </button>
+              </div>
+            </Link>
+          ) : (
+            <div className="d-flex flex-column">
+              <button type="submit" className="btnDiv btn btn-success btn-lg">
+                Sign Up!
+              </button>
+            </div>
+          )}
 
-        <p className="no-account">
-          Already have an account?{" "}
-          <Link style={{ marginLeft: ".2rem" }} to="/">
-            {" "}
-            LOGIN!
-          </Link>
-        </p>
-      </form>
-    </div>
+          <p className="no-account">
+            Already have an account?{" "}
+            <Link style={{ marginLeft: ".2rem" }} to="/">
+              {" "}
+              LOGIN!
+            </Link>
+          </p>
+        </form>
+      </div>
+    </Container>
   );
 };
 
