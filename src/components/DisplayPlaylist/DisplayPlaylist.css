@@ -1,0 +1,31 @@
+.btnplaylist {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.playlistName {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.playlistName:link {
+  text-decoration: none;
+}
+.playlistDesc {
+  font-size: 12px;
+}
+
+.Playlist {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+
+  margin-left: auto;
+}
+
+.btn {
+  height: 50px;
+  width: auto;
+}

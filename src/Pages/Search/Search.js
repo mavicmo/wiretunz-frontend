@@ -22,7 +22,7 @@ function Search() {
   const [genres, setGenres] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
-  console.log(token);
+  // console.log(token);
   function chooseTrack(track) {
     setPlayingTrack(track);
     setSearch("");
@@ -46,7 +46,20 @@ function Search() {
       }
     );
     setToken(res.data.access_token);
+    getGenreCards(res.data.access_token);
   }, []);
+  const getGenreCards = async (token) => {
+    const { data } = await axios.get(
+      "https://api.spotify.com/v1/recommendations/available-genre-seeds",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    setGenres(data.genres);
+    // console.log(data.genres);
+  };
 
   useEffect(() => {
     fetchData();
