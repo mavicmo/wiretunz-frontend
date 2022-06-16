@@ -22,7 +22,7 @@ function Search() {
   const [genres, setGenres] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
-
+  console.log(token);
   function chooseTrack(track) {
     setPlayingTrack(track);
     setSearch("");
@@ -38,11 +38,14 @@ function Search() {
       params,
       {
         headers: {
-          Authorization:
-            "Basic " +
-            new Buffer.from(client_id + ":" + client_secret).toString("base64"),
           "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Basic ${btoa(`${client_id}:${client_secret}`)}`,
+          //   Authorization:
+          //"Basic " +
+          //   new Buffer.from(client_id + ":" + client_secret).toString("base64"),
+          // "Content-Type": "application/x-www-form-urlencoded",
         },
+        data: "grant_type=client_credentials",
       }
     );
     setToken(res.data.access_token);
@@ -58,7 +61,7 @@ function Search() {
       }
     );
     setGenres(data.genres);
-    // console.log(data.genres);
+    console.log(data.genres);
   };
 
   useEffect(() => {
@@ -82,6 +85,7 @@ function Search() {
             },
             track.album.images[0]
           );
+          console.log(track);
           return {
             artist: track.artists[0].name,
             title: track.name,
@@ -94,6 +98,20 @@ function Search() {
 
     return () => (cancel = true);
   }, [search, token]);
+
+  //add song to playlist
+  // const addToPlaylist = (songID, playlistID) => {
+  //   console.log(songID, playlistID);
+  //   const data = {
+  //     songID,
+  //     playlistID,
+  //   };
+  //   axios
+  //     .put("http://localhost:3001/playlist/addsong/", data, {
+  //       headers: { authorization: currentUser.token },
+  //     })
+  //     .then(() => console.log("song added"));
+  // };
 
   return (
     <>
@@ -117,9 +135,7 @@ function Search() {
             />
           ))}
         </div>
-        <div>
-          <Player token={token} trackUri={playingTrack?.uri} />
-        </div>
+        <div>{/* <Player token={token} trackUri={playingTrack?.uri} /> */}</div>
       </Container>
     </>
   );
