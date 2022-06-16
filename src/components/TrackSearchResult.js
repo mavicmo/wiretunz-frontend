@@ -1,9 +1,23 @@
-import React from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 export default function TrackSearchResult({ track, chooseTrack }) {
+  console.log(track);
+  const URL = "http://localhost:3001/songs/";
+  const song = {
+    name: track.title,
+    artist: track.artist,
+    img: track.albumUrl,
+  };
   function handlePlay() {
     chooseTrack(track);
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post("http://localhost:3001/songs/", song).then((res) => {
+      console.log(res.data.music);
+    });
+  };
 
   return (
     <div
@@ -15,7 +29,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
       <div className="ml-3">
         <div>{track.title}</div>
         <div className="text-muted">{track.artist}</div>
-        <button>Like</button>
+        <button onClick={handleSubmit}>Add Song</button>
       </div>
     </div>
   );
