@@ -9,6 +9,7 @@ import Profile from "./Pages/Profile/Profile";
 import AddSong from "./Pages/AddSong/AddSong";
 import Playlist from "./Pages/Playlist/Playlist";
 import DisplayPlaylist from "./components/DisplayPlaylist/DisplayPlaylist";
+import ViewPlaylist from "./Pages/ViewPlaylist/ViewPlaylist.js";
 import { Routes, Route } from "react-router-dom";
 import Bar from "./components/NavBar/Navbar.js";
 import LikedSongs from "./Pages/LikedSongs/LikedSongs.js";
@@ -29,6 +30,7 @@ function App() {
       <Route path="/songs" element={<Songs />} />
       <Route path="/addplaylist/" element={<Playlist />} />
       <Route path="/playlists/" element={<DisplayPlaylist />} />
+      <Route path="/ViewPlaylist/:playlistid" element={<ViewPlaylist />} />
       <Route path="/likedsongs/" element={<LikedSongs />} />
       <Route path="/updatesong/:songid" element={<UpdateSong />} />
       <Route path="/updateplaylist/:playlistid" element={<UpdatePlaylist />} />

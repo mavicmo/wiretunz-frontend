@@ -11,7 +11,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
   function handlePlay() {
     chooseTrack(track);
   }
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("http://localhost:3001/songs/", song).then((res) => {

@@ -5,7 +5,7 @@ import Bar from "../NavBar/Navbar";
 import AuthService from "../../services/authServices";
 import { Button, Fade, Container, Card } from "react-bootstrap";
 import "./DisplayPlaylist.css";
-import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist";
+import ViewPlaylist from "../../Pages/ViewPlaylist/ViewPlaylist";
 function DisplayPlaylist() {
   const [playlist, setPlaylist] = useState([]);
 
@@ -73,7 +73,7 @@ function DisplayPlaylist() {
                     <p className="playlistDesc">{Playlist.desc}</p>
                   </Container>
                   <div className="buttons">
-                    <Link to={`/${Playlist._id}`}>
+                    <Link to={`/ViewPlaylist/${Playlist._id}`}>
                       <button type="button" className="btn btn-primary btn-sm">
                         View
                       </button>
