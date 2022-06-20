@@ -22,7 +22,7 @@ function Search() {
   const [genres, setGenres] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
-  console.log(token);
+  // console.log(token);
   function chooseTrack(track) {
     setPlayingTrack(track);
     setSearch("");
@@ -38,12 +38,12 @@ function Search() {
       params,
       {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Basic ${btoa(`${client_id}:${client_secret}`)}`,
-          //   Authorization:
-          //"Basic " +
-          //   new Buffer.from(client_id + ":" + client_secret).toString("base64"),
           // "Content-Type": "application/x-www-form-urlencoded",
+          // Authorization: `Basic ${btoa(`${client_id}:${client_secret}`)}`,
+          Authorization:
+            "Basic " +
+            new Buffer.from(client_id + ":" + client_secret).toString("base64"),
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         data: "grant_type=client_credentials",
       }
