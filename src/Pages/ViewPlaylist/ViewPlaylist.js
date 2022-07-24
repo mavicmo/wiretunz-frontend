@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "../../components/NavBar/Navbar";
-import { Button, Fade, Container, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
@@ -84,6 +84,7 @@ function ViewPlaylist() {
                   <img
                     src={song.img}
                     style={{ height: "64px", width: "64px" }}
+                    alt={song.name}
                   />
 
                   <button

@@ -3,8 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Button, Fade, Container, Card } from "react-bootstrap";
-import FormInput from "../../components/FormInputs/FormInputs";
+
 import { useParams } from "react-router-dom";
 import Bar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
@@ -21,35 +20,35 @@ function UpdatePlaylist(props) {
     img: "Enter Img",
   });
   console.log(values.name);
-  const inputs = [
-    {
-      id: 1,
-      name: "name",
-      type: "text",
-      placeholder: "name",
-      errorMessage: "Please do not leave empty!",
-      label: "name",
-      required: true,
-    },
-    {
-      id: 2,
-      name: "img",
-      type: "text",
-      placeholder: "img",
-      errorMessage: "Please do not leave empty!",
-      label: "img",
-      required: true,
-    },
-    {
-      id: 3,
-      name: "desc",
-      type: "text",
-      placeholder: "Desc",
-      errorMessage: "Please do not leave empty!",
-      label: "Desc",
-      required: true,
-    },
-  ];
+  // const inputs = [
+  //   {
+  //     id: 1,
+  //     name: "name",
+  //     type: "text",
+  //     placeholder: "name",
+  //     errorMessage: "Please do not leave empty!",
+  //     label: "name",
+  //     required: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "img",
+  //     type: "text",
+  //     placeholder: "img",
+  //     errorMessage: "Please do not leave empty!",
+  //     label: "img",
+  //     required: true,
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "desc",
+  //     type: "text",
+  //     placeholder: "Desc",
+  //     errorMessage: "Please do not leave empty!",
+  //     label: "Desc",
+  //     required: true,
+  //   },
+  // ];
 
   // handles the submit button for a sign up
   const handleSubmit = (e) => {

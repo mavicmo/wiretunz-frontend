@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+
 import Login from "./Pages/Login/Login.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
 import Songs from "./components/Songs/Songs.js";
@@ -11,7 +11,7 @@ import Playlist from "./Pages/Playlist/Playlist";
 import DisplayPlaylist from "./components/DisplayPlaylist/DisplayPlaylist";
 import ViewPlaylist from "./Pages/ViewPlaylist/ViewPlaylist.js";
 import { Routes, Route } from "react-router-dom";
-import Bar from "./components/NavBar/Navbar.js";
+
 import LikedSongs from "./Pages/LikedSongs/LikedSongs.js";
 import UpdateSong from "./components/UpdateSong/UpdateSong";
 import UpdatePlaylist from "./Pages/UpdatePlaylist/UpdatePlaylist";

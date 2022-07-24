@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+
 import { useParams } from "react-router-dom";
 import Bar from "../NavBar/Navbar";
 function UpdateSong(props) {
@@ -29,7 +29,7 @@ function UpdateSong(props) {
     // updateSong(songID);
     console.log("update song hit");
     try {
-      axios.put(URL + "songs/" + `${id}`, values).then((res) => {
+      axios.put(URL + `songs/${id}`, values).then((res) => {
         console.log(res);
         setValues(res.data.data);
       });

@@ -4,7 +4,7 @@ import "./signup.css";
 import FormInput from "../../components/FormInputs/FormInputs";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Container, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 const SignUp = () => {
   const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   // useState for the values

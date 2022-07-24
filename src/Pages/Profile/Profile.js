@@ -1,14 +1,14 @@
 import React from "react";
 import axios from "axios";
 import AuthService from "../../services/authServices";
-import NavBar from "../../components/NavBar/Navbar";
+
 import FormInput from "../../components/FormInputs/FormInputs";
-import authHeader from "../../services/authHeader";
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./profile.css";
 import Bar from "../../components/NavBar/Navbar";
-import { Button, Fade, Container, Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 function Profile() {
   const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
@@ -23,7 +23,7 @@ function Profile() {
 
   // useEffect(() => {}, [currentUser]);
   // useState for the submit Button
-  const [submitted, setSubmitted] = useState(false);
+
   const [edit, setEdit] = useState(false);
   const navigate = useNavigate();
   // static setting for the input values
@@ -84,8 +84,6 @@ function Profile() {
           .then(() => {
             navigate("/profile");
             window.location.reload();
-
-            setSubmitted(true);
           });
       }
     } catch (error) {

@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import "../SignUp/signup.css";
 import FormInput from "../../components/FormInputs/FormInputs";
 import React from "react";
 import AuthService from "../../services/authServices";
 
-import { Container, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./login.css";
 
 const Login = () => {
-  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   // useState for the values
   const [values, setValues] = useState({
     email: "",
@@ -24,7 +23,6 @@ const Login = () => {
   // const location = useLocation();
   // const { fromData } = location.state;
   // useState for the submit Button
-  const [submitted, setSubmitted] = useState(false);
 
   // static setting for the input values
   const inputs = [
@@ -68,8 +66,6 @@ const Login = () => {
           window.location.reload();
         });
       }
-
-      setSubmitted(true);
     } catch (error) {
       console.log(error);
     }

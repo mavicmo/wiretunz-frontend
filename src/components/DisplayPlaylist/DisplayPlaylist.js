@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Bar from "../NavBar/Navbar";
 import AuthService from "../../services/authServices";
-import { Button, Fade, Container, Card } from "react-bootstrap";
+import { Button, Container, Card } from "react-bootstrap";
 import "./DisplayPlaylist.css";
-import ViewPlaylist from "../../Pages/ViewPlaylist/ViewPlaylist";
+
 function DisplayPlaylist() {
   const [playlist, setPlaylist] = useState([]);
 

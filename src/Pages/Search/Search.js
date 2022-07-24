@@ -15,19 +15,17 @@ const client_id = "1d7ae6fb9e7947a8bc49ca82b84069a1";
 const client_secret = "0f7cdc8801454a29878f54b5a5f1e330";
 
 function Search() {
-  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   //useState
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [token, setToken] = useState("");
-  const [genres, setGenres] = useState([]);
+
   const [playingTrack, setPlayingTrack] = useState();
-  const [lyrics, setLyrics] = useState("");
+
   // console.log(token);
   function chooseTrack(track) {
     setPlayingTrack(track);
     setSearch("");
-    setLyrics("");
   }
   // console.log(searchResults);
   //getting information from spotify api
@@ -50,20 +48,17 @@ function Search() {
       }
     );
     setToken(res.data.access_token);
-    getGenreCards(res.data.access_token);
   });
-  const getGenreCards = async (token) => {
-    const { data } = await axios.get(
-      "https://api.spotify.com/v1/recommendations/available-genre-seeds",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    setGenres(data.genres);
-    console.log(data.genres);
-  };
+  // const getGenreCards = async (token) => {
+  //   const { data } = await axios.get(
+  //     "https://api.spotify.com/v1/recommendations/available-genre-seeds",
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     }
+  //   );
+  // };
 
   useEffect(() => {
     fetchData();

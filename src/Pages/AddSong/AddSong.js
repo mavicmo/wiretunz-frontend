@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./AddSong.css";
 import axios from "axios";
 // import NavBar from "../../components/NavBar/Navbar";
-import { Link } from "react-router-dom";
+
 import DisplayASong from "../../components/DisplayASong/DisplayASong";
 import Bar from "../../components/NavBar/Navbar";
 
@@ -16,7 +16,7 @@ function AddSong() {
     song: "",
     img: "",
   });
-  const [submitted, setSubmitted] = useState(true);
+
   const [valid, setValid] = useState(false);
 
   const handleTitleInputChange = (event) => {
@@ -45,7 +45,6 @@ function AddSong() {
         console.log(res.data.music);
       });
     }
-    setSubmitted(true);
   };
 
   return (

@@ -1,32 +1,23 @@
-import { useState } from "react";
 import "./DisplayAPlaylist.css";
-import { Button, Fade, Container, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import AuthService from "../../services/authServices";
-function DisplayAPlaylist({ playlist }) {
-  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
-  const playlistID = useParams();
-  const currentUser = AuthService.getCurrentUser();
-  const id = playlistID.playlistid;
+import { Container } from "react-bootstrap";
 
-  const [values, setValues] = useState();
+function DisplayAPlaylist({ playlist }) {
   const loaded = () => {
     {
       console.log("loading hit");
     }
 
-    const getPlaylist = () => {
-      console.log("got the playlist");
+    // const getPlaylist = () => {
+    //   console.log("got the playlist");
 
-      axios
-        .put(URL + `{id}`, {
-          headers: { authorization: currentUser.token },
-        })
-        .then((res) => {
-          console.log(res);
-        });
-    };
+    //   axios
+    //     .put(URL + id, {
+    //       headers: { authorization: currentUser.token },
+    //     })
+    //     .then((res) => {
+    //       console.log(res);
+    //     });
+    // };
 
     return (
       <Container>

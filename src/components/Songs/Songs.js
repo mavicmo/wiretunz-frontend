@@ -3,20 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 import * as AiIcons from "react-icons/ai";
-import Bar from "../NavBar/Navbar";
+
 // import UpdateSong from "./components/UpdateSong/UpdateSong";
-import {
-  DropdownButton,
-  ButtonGroup,
-  Dropdown,
-  SplitButton,
-  Card,
-  Button,
-} from "react-bootstrap";
+import { DropdownButton, Dropdown, Card } from "react-bootstrap";
 
 function Songs() {
   const [songs, setSongs] = useState([]);
-  const [liked, setLiked] = useState();
+
   const [playlists, setPlaylists] = useState();
   const currentUser = AuthService.getCurrentUser();
   // const playlist = FetchPlaylist.fetchPlaylistData();

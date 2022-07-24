@@ -5,7 +5,6 @@ import AuthService from "../../services/authServices";
 import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist";
 import Bar from "../../components/NavBar/Navbar";
 
-import { Button, Form, Input } from "react-bootstrap";
 const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
 function Playlist() {
   const currentUser = AuthService.getCurrentUser();
@@ -14,7 +13,7 @@ function Playlist() {
     desc: "",
     img: "",
   });
-  const [submitted, setSubmitted] = useState(true);
+
   const [valid, setValid] = useState(false);
   const [playlist, setPlaylist] = useState();
 
