@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 export default function TrackSearchResult({ track, chooseTrack }) {
   console.log(track);
-  const URL = "http://localhost:3001/songs/";
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   const song = {
     name: track.title,
     artist: track.artist,
@@ -11,10 +11,10 @@ export default function TrackSearchResult({ track, chooseTrack }) {
   function handlePlay() {
     chooseTrack(track);
   }
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3001/songs/", song).then((res) => {
+    axios.post(URL + "songs/", song).then((res) => {
       console.log(res.data.music);
     });
   };

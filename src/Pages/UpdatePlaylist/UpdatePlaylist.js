@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import Bar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 function UpdatePlaylist(props) {
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   const navigate = useNavigate();
   const playlistID = useParams();
   const currentUser = AuthService.getCurrentUser();
@@ -59,7 +60,7 @@ function UpdatePlaylist(props) {
     console.log("update playlist hit");
 
     axios
-      .put("http://localhost:3001/playlist/editplaylist/" + `${id}`, values, {
+      .put(URL + "playlist/editplaylist/" + `${id}`, values, {
         headers: { authorization: currentUser.token },
       })
       .then((res) => {

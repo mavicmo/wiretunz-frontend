@@ -8,7 +8,7 @@ import * as AiIcons from "react-icons/ai";
 function LikedSongs() {
   const [likeSong, setLikedSong] = useState([]);
   const currentUser = AuthService.getCurrentUser();
-  const URL = "http://localhost:3001/songs/likedsongs/";
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   console.log(currentUser);
   useEffect(() => {
     fetchLikedData();
@@ -28,7 +28,7 @@ function LikedSongs() {
   const likedSong = (id) => {
     console.log("liked hit");
     axios
-      .put("http://localhost:3001/songs/likedsong/" + `${id}`, null, {
+      .put(URL + "songs/likedsong/" + `${id}`, null, {
         headers: { authorization: currentUser.token },
       })
       .then(window.location.reload());

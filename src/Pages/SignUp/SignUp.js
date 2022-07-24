@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Container, Form } from "react-bootstrap";
 const SignUp = () => {
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   // useState for the values
   const [values, setValues] = useState({
     firstName: "",
@@ -77,7 +78,7 @@ const SignUp = () => {
 
       // connects to the backend server to set the values
       axios
-        .post("http://localhost:3001/users/signup/", values)
+        .post(URL + "signup/", values)
         .then(() => {
           console.log("User has been signed up.");
           setSubmitted(true);

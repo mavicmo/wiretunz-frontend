@@ -7,6 +7,7 @@ import Bar from "../NavBar/Navbar";
 function UpdateSong(props) {
   const songID = useParams();
   const id = songID.songid;
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
 
   const [values, setValues] = useState({
     name: "",
@@ -28,12 +29,10 @@ function UpdateSong(props) {
     // updateSong(songID);
     console.log("update song hit");
     try {
-      axios
-        .put("http://localhost:3001/songs/" + `${id}`, values)
-        .then((res) => {
-          console.log(res);
-          setValues(res.data.data);
-        });
+      axios.put(URL + "songs/" + `${id}`, values).then((res) => {
+        console.log(res);
+        setValues(res.data.data);
+      });
     } catch (error) {
       console.log(error);
     }

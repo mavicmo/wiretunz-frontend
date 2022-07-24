@@ -7,6 +7,7 @@ import DisplayASong from "../../components/DisplayASong/DisplayASong";
 import Bar from "../../components/NavBar/Navbar";
 
 function AddSong() {
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   const [songs, setSongs] = useState();
 
   const [equals, setEquals] = useState({
@@ -39,7 +40,7 @@ function AddSong() {
     if (equals.name && equals.artist && equals.song && equals.img) {
       setValid(true);
 
-      axios.post("http://localhost:3001/songs/", equals).then((res) => {
+      axios.post(URL + "songs/", equals).then((res) => {
         setSongs(res.data.music);
         console.log(res.data.music);
       });

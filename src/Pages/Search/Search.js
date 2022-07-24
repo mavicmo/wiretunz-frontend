@@ -15,6 +15,7 @@ const client_id = "1d7ae6fb9e7947a8bc49ca82b84069a1";
 const client_secret = "0f7cdc8801454a29878f54b5a5f1e330";
 
 function Search() {
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   //useState
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -67,7 +68,7 @@ function Search() {
   useEffect(() => {
     fetchData();
     spotifyApi.setAccessToken(token);
-  }, []);
+  }, [search]);
 
   useEffect(() => {
     if (!search) return setSearchResults([]);
@@ -135,7 +136,9 @@ function Search() {
             />
           ))}
         </div>
-        <div>{/* <Player token={token} trackUri={playingTrack?.uri} /> */}</div>
+        <div>
+          <Player token={token} trackUri={playingTrack?.uri} />
+        </div>
       </Container>
     </>
   );

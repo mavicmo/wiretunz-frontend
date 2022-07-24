@@ -21,7 +21,7 @@ function Songs() {
   const currentUser = AuthService.getCurrentUser();
   // const playlist = FetchPlaylist.fetchPlaylistData();
 
-  const URL = "http://localhost:3001/songs/"; // HEROKU LINK
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV; // HEROKU LINK
 
   useEffect(() => {
     fetchSongData();
@@ -30,7 +30,7 @@ function Songs() {
   // fetch playlist information
   const fetchPlaylistData = () => {
     // fetching all playlist from our heroku URL
-    axios.get("http://localhost:3001/playlist/").then((response) => {
+    axios.get(URL + "playlist/").then((response) => {
       // console.log(response.data.data);
       setPlaylists(response.data.data);
     });
@@ -74,7 +74,7 @@ function Songs() {
       playlistID,
     };
     axios
-      .put("http://localhost:3001/playlist/addsong/", data, {
+      .put(URL + "playlist/addsong/", data, {
         headers: { authorization: currentUser.token },
       })
       .then(() => console.log("song added"));

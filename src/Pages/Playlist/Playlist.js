@@ -6,7 +6,7 @@ import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist
 import Bar from "../../components/NavBar/Navbar";
 
 import { Button, Form, Input } from "react-bootstrap";
-
+const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
 function Playlist() {
   const currentUser = AuthService.getCurrentUser();
   const [values, setValues] = useState({
@@ -36,7 +36,7 @@ function Playlist() {
       setValid(true);
 
       axios
-        .post("http://localhost:3001/playlist", values, {
+        .post(URL + "playlist", values, {
           headers: { authorization: currentUser.token },
         })
         .then((res) => {

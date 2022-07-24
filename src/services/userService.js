@@ -1,6 +1,7 @@
 import axios from "axios";
 import authHeader from "./authHeader";
-const API_URL = "http://localhost:3001/users/test/";
+const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
+const API_URL = URL
 // const getPublicContent = () => {
 //   return axios.get(API_URL + "all");
 // };

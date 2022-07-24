@@ -10,7 +10,7 @@ function DisplayPlaylist() {
   const [playlist, setPlaylist] = useState([]);
 
   const currentUser = AuthService.getCurrentUser();
-  const URL = "http://localhost:3001/playlist/"; // HEROKU LINK
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV; // HEROKU LINK
 
   useEffect(() => {
     fetchPlaylistData();

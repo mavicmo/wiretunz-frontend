@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 function ViewPlaylist() {
-  const URL = "http://localhost:3001/";
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   const playlistID = useParams();
   const currentUser = AuthService.getCurrentUser();
   const id = playlistID.playlistid;
@@ -25,14 +25,14 @@ function ViewPlaylist() {
     console.log("got the playlist");
 
     axios
-      .get(`http://localhost:3001/playlist/${id}`, {
+      .get(URL + `playlist/${id}`, {
         headers: { authorization: currentUser.token },
       })
       .then((res) => {
         console.log(res.data.data);
         setValues(res.data.data.playlist);
         setSongs(res.data.data.songs);
-        setValid(true)
+        setValid(true);
       });
   };
 
@@ -53,17 +53,18 @@ function ViewPlaylist() {
   const removeSong = (songID, playlistID) => {
     const data = {
       songID,
-      playlistID
-    }
+      playlistID,
+    };
 
-    axios.put('http://localhost:3001/playlist/removesong/', data, {
-           headers: { authorization: currentUser.token }}).then(() => {
-      console.log('removed')
-      window.location.reload(false);
-    })
-
-  }
- 
+    axios
+      .put(URL + "playlist/removesong/", data, {
+        headers: { authorization: currentUser.token },
+      })
+      .then(() => {
+        console.log("removed");
+        window.location.reload(false);
+      });
+  };
 
   return (
     <>
@@ -71,31 +72,32 @@ function ViewPlaylist() {
       <Container>
         <div className="containerDiv">
           <h1 className="h1Div">{values.name}</h1>
-    
-          
-          {valid ? songs.map((song) => (
-            
-            <div style={{ overflowY: "auto" }}>
-               <h2>
-            desc: {values.desc.charAt(0).toUpperCase() + values.desc.slice(1)}
-          </h2>
-            <h2>{song.name}</h2>
-          <img src={song.img} style={{ height: "64px", width: "64px" }} />
-            
-          <button
-                      type="button"
-                      onClick={() => {
-                        removeSong(song._id, values._id);
-                      }}
-                      className="btn btn-danger btn-sm"
-                    >
-                      Remove
-                    </button>
-            
-            </div>
-           
-          )) : null}
-          
+
+          {valid
+            ? songs.map((song) => (
+                <div style={{ overflowY: "auto" }}>
+                  <h2>
+                    desc:{" "}
+                    {values.desc.charAt(0).toUpperCase() + values.desc.slice(1)}
+                  </h2>
+                  <h2>{song.name}</h2>
+                  <img
+                    src={song.img}
+                    style={{ height: "64px", width: "64px" }}
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      removeSong(song._id, values._id);
+                    }}
+                    className="btn btn-danger btn-sm"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))
+            : null}
         </div>
       </Container>
     </>

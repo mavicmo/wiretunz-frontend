@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 function DisplayAPlaylist({ playlist }) {
-  const URL = "http://localhost:3001/";
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   const playlistID = useParams();
   const currentUser = AuthService.getCurrentUser();
   const id = playlistID.playlistid;

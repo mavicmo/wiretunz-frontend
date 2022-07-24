@@ -11,6 +11,7 @@ import Bar from "../../components/NavBar/Navbar";
 import { Button, Fade, Container, Card } from "react-bootstrap";
 
 function Profile() {
+  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
   let currentUser = AuthService.getCurrentUser();
   // useState for the values
   const [values, setValues] = useState({
@@ -71,7 +72,7 @@ function Profile() {
         console.log(currentUser);
         // connects to the backend server to set the values
         axios
-          .put(`http://localhost:3001/users/${currentUser._id}`, values, {
+          .put(URL + `users/${currentUser._id}`, values, {
             headers: { authorization: currentUser.token },
           })
           .then((response) => {
