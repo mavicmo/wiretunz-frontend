@@ -34,13 +34,13 @@ function Songs() {
   }, []);
   const fetchSongData = () => {
     // fetching all songs from our heroku URL
-    axios.get(URL).then((response) => {
+    axios.get(URL + "songs/").then((response) => {
       // console.log(response.data.data);
       setSongs(response.data.data);
     });
   };
 
-  if (!songs.length) {
+  if (!songs.length || !playlists.length) {
     return <h1>loading....</h1>;
   }
 
@@ -54,7 +54,7 @@ function Songs() {
   const deleteSong = (id) => {
     console.log("deleted");
     axios
-      .delete(URL + `${id}`, {
+      .delete(URL + `songs/${id}`, {
         headers: { authorization: currentUser.token },
       })
       .then(window.location.reload());

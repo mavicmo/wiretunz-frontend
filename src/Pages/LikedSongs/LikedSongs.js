@@ -16,7 +16,7 @@ function LikedSongs() {
 
   const fetchLikedData = () => {
     axios
-      .get(URL, {
+      .get(URL + "songs/likedsongs/", {
         headers: { authorization: currentUser.token },
       })
       .then((res) => {

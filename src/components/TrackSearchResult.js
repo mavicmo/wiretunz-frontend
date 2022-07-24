@@ -1,7 +1,7 @@
 import axios from "axios";
 export default function TrackSearchResult({ track, chooseTrack }) {
   console.log(track);
-  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
+  const URL = "https://wiretunzserver.herokuapp.com/";
   const song = {
     name: track.title,
     artist: track.artist,

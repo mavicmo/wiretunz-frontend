@@ -18,7 +18,7 @@ function DisplayPlaylist() {
 
   const fetchPlaylistData = () => {
     // fetching all playlist from our heroku URL
-    axios.get(URL).then((response) => {
+    axios.get(URL + "playlist").then((response) => {
       console.log(response.data.data);
       setPlaylist(response.data.data);
     });

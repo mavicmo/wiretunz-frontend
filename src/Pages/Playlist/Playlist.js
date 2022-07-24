@@ -36,7 +36,7 @@ function Playlist() {
       setValid(true);
 
       axios
-        .post(URL + "playlist", values, {
+        .post(URL + "playlist/", values, {
           headers: { authorization: currentUser.token },
         })
         .then((res) => {
