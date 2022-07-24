@@ -1,8 +1,9 @@
 import axios from "axios";
-const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
+const URL = "https://wiretunzserver.herokuapp.com/";
+
 const API_URL = URL;
 const register = (firstName, lastName, email, password) => {
-  return axios.post(API_URL + "signup", {
+  return axios.post(API_URL + "users/signup", {
     firstName,
     lastName,
     email,
@@ -12,7 +13,7 @@ const register = (firstName, lastName, email, password) => {
 const login = async (email, password) => {
   console.log("login route hit");
   return axios
-    .post(API_URL + "login", {
+    .post(API_URL + "users/login", {
       email,
       password,
     })

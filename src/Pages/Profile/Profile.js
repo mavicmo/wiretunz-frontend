@@ -11,7 +11,7 @@ import Bar from "../../components/NavBar/Navbar";
 import { Container, Card } from "react-bootstrap";
 
 function Profile() {
-  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
+  const URL = "https://wiretunzserver.herokuapp.com/";
   let currentUser = AuthService.getCurrentUser();
   // useState for the values
   const [values, setValues] = useState({

@@ -14,7 +14,7 @@ function Songs() {
   const currentUser = AuthService.getCurrentUser();
   // const playlist = FetchPlaylist.fetchPlaylistData();
 
-  const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV; // HEROKU LINK
+  const URL = "https://wiretunzserver.herokuapp.com/"; // HEROKU LINK
 
   useEffect(() => {
     fetchSongData();

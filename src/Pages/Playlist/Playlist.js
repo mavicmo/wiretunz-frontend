@@ -5,7 +5,8 @@ import AuthService from "../../services/authServices";
 import DisplayAPlaylist from "../../components/DisplayAPlaylist/DisplayAPlaylist";
 import Bar from "../../components/NavBar/Navbar";
 
-const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
+const URL = "https://wiretunzserver.herokuapp.com/";
+console.log(URL);
 function Playlist() {
   const currentUser = AuthService.getCurrentUser();
   const [values, setValues] = useState({

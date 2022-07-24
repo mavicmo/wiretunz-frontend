@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./authHeader";
-const URL = process.env.BASE_URL_PROD || process.env.BASE_URL_DEV;
-const API_URL = URL
+const URL = "https://wiretunzserver.herokuapp.com/";
+const API_URL = URL;
 // const getPublicContent = () => {
 //   return axios.get(API_URL + "all");
 // };
