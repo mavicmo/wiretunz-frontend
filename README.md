@@ -2,6 +2,9 @@
 
 WireTunz is a Spotify inspired app, targeted users are music lovers.
 
+Backend github: https://github.com/mavicmo/wiretunz-backend/
+App Link: https://wiretunz.netlify.app/ 
+
 
 # Wire Frame 
 
