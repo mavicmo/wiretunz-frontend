@@ -1,6 +1,6 @@
 import axios from "axios";
 import authHeader from "./authHeader";
-const URL = "https://wiretunzserver.herokuapp.com/";
+const URL = "https://wiretunz-production.up.railway.app/";
 const API_URL = URL;
 // const getPublicContent = () => {
 //   return axios.get(API_URL + "all");

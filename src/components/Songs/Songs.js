@@ -14,7 +14,7 @@ function Songs() {
   const currentUser = AuthService.getCurrentUser();
   // const playlist = FetchPlaylist.fetchPlaylistData();
 
-  const URL = "https://wiretunzserver.herokuapp.com/"; // HEROKU LINK
+  const URL = "https://wiretunz-production.up.railway.app/"; //  LINK
 
   useEffect(() => {
     fetchSongData();
@@ -22,7 +22,7 @@ function Songs() {
 
   // fetch playlist information
   const fetchPlaylistData = () => {
-    // fetching all playlist from our heroku URL
+    // fetching all playlist from our  URL
     axios.get(URL + "playlist/").then((response) => {
       // console.log(response.data.data);
       setPlaylists(response.data.data);
@@ -33,7 +33,7 @@ function Songs() {
     fetchPlaylistData();
   }, []);
   const fetchSongData = () => {
-    // fetching all songs from our heroku URL
+    // fetching all songs from our  URL
     axios.get(URL + "songs/").then((response) => {
       // console.log(response.data.data);
       setSongs(response.data.data);

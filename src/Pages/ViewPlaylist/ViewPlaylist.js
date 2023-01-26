@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../../services/authServices";
 function ViewPlaylist() {
-  const URL = "https://wiretunzserver.herokuapp.com/";
+  const URL = "https://wiretunz-production.up.railway.app/";
   const playlistID = useParams();
   const currentUser = AuthService.getCurrentUser();
   const id = playlistID.playlistid;

@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import Bar from "../../components/NavBar/Navbar";
 import AuthService from "../../services/authServices";
 function UpdatePlaylist(props) {
-  const URL = "https://wiretunzserver.herokuapp.com/";
+  const URL = "https://wiretunz-production.up.railway.app/";
   const navigate = useNavigate();
   const playlistID = useParams();
   const currentUser = AuthService.getCurrentUser();

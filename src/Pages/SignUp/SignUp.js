@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
 const SignUp = () => {
-  const URL = "https://wiretunzserver.herokuapp.com/";
+  const URL = "https://wiretunz-production.up.railway.app/";
   // useState for the values
   const [values, setValues] = useState({
     firstName: "",

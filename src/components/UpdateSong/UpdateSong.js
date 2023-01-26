@@ -7,7 +7,7 @@ import Bar from "../NavBar/Navbar";
 function UpdateSong(props) {
   const songID = useParams();
   const id = songID.songid;
-  const URL = "https://wiretunzserver.herokuapp.com/";
+  const URL = "https://wiretunz-production.up.railway.app/";
 
   const [values, setValues] = useState({
     name: "",

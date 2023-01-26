@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "https://wiretunzserver.herokuapp.com/";
+const URL = "https://wiretunz-production.up.railway.app/";
 
 const API_URL = URL;
 const register = (firstName, lastName, email, password) => {

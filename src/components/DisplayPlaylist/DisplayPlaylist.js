@@ -10,14 +10,14 @@ function DisplayPlaylist() {
   const [playlist, setPlaylist] = useState([]);
 
   const currentUser = AuthService.getCurrentUser();
-  const URL = "https://wiretunzserver.herokuapp.com/"; // HEROKU LINK
+  const URL = "https://wiretunz-production.up.railway.app/"; //
 
   useEffect(() => {
     fetchPlaylistData();
   }, []);
 
   const fetchPlaylistData = () => {
-    // fetching all playlist from our heroku URL
+    // fetching all playlist from our  URL
     axios.get(URL + "playlist").then((response) => {
       console.log(response.data.data);
       setPlaylist(response.data.data);

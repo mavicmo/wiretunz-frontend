@@ -8,7 +8,7 @@ import * as AiIcons from "react-icons/ai";
 function LikedSongs() {
   const [likeSong, setLikedSong] = useState([]);
   const currentUser = AuthService.getCurrentUser();
-  const URL = "https://wiretunzserver.herokuapp.com/";
+  const URL = "https://wiretunz-production.up.railway.app/";
   console.log(currentUser);
   useEffect(() => {
     fetchLikedData();
